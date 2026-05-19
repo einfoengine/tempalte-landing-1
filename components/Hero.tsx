@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="bg-white pt-16 pb-24 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="hero-dot-bg pt-16 pb-24 overflow-hidden">
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Badge */}
         <div className="flex justify-center mb-7">
           <span className="inline-flex items-center gap-2 bg-orange-50 text-orange-600 text-sm font-semibold px-4 py-1.5 rounded-full border border-orange-100">

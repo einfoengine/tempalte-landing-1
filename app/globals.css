@@ -3,11 +3,25 @@
 :root {
   --background: #ffffff;
   --foreground: #0f172a;
+  --primary: #04044A;
 }
 
 @theme inline {
   --font-sans: var(--font-inter);
   --font-display: var(--font-space-grotesk);
+
+  /* Remap the entire orange scale → #04044A primary palette.
+     All existing orange-* Tailwind classes pick up the new brand color automatically. */
+  --color-orange-50:  #eeeef7;
+  --color-orange-100: #d4d4ec;
+  --color-orange-200: #ababd9;
+  --color-orange-300: #7070be;
+  --color-orange-400: #3535a3;
+  --color-orange-500: #04044a;
+  --color-orange-600: #030339;
+  --color-orange-700: #020228;
+  --color-orange-800: #010118;
+  --color-orange-900: #00000c;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -25,9 +39,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Gradient text */
+/* Gradient text — primary navy → indigo */
 .gradient-text {
-  background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
+  background: linear-gradient(135deg, #04044a 0%, #2b2baa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -50,12 +64,29 @@ body {
   animation: fadeUp 0.7s ease-out both;
 }
 
-/* Pulse glow for CTA */
+/* Pulse glow for CTA — updated to primary color */
 @keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.3); }
-  50%       { box-shadow: 0 0 0 10px rgba(249, 115, 22, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(4, 4, 74, 0.35); }
+  50%       { box-shadow: 0 0 0 12px rgba(4, 4, 74, 0); }
 }
 
 .cta-glow {
   animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+/* Hero dotted background */
+.hero-dot-bg {
+  background-color: #ffffff;
+  background-image: radial-gradient(circle, rgba(4, 4, 74, 0.13) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+  position: relative;
+}
+
+/* Radial fade so dots disappear toward the bottom */
+.hero-dot-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 100% 70% at 50% 0%, transparent 20%, #ffffff 100%);
+  pointer-events: none;
 }
