@@ -23,7 +23,7 @@ export default function Navbar() {
           href="#pricing"
           className="bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-colors shadow-md shadow-orange-500/25"
         >
-          Get the Template — $97
+          Get the Template - $97
         </a>
       </div>
     </header>

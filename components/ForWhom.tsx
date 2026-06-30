@@ -4,7 +4,7 @@ const personas = [
     role: "Agency Owners",
     tagline: "Reselling GHL under your brand",
     description:
-      "You've built a GHL sub-account agency and want to package it as a real SaaS product. PureSaaS gives you the marketing site that makes 'XYZ Pro' look like a serious, fundable business — not a reseller.",
+      "You've built a GHL sub-account agency and want to package it as a real SaaS product. PureSaaS gives you the marketing site that makes 'XYZ Pro' look like a serious, fundable business - not a reseller.",
     painPoints: ["Clients ask 'wait, is this really your software?'", "Your site looks like a freelancer's side project", "Losing enterprise deals to more polished competitors"],
   },
   {
@@ -12,7 +12,7 @@ const personas = [
     role: "Solo Founders",
     tagline: "Launching your first GHL SaaS",
     description:
-      "You've got the platform configured, the pricing figured out, and now you need a website that can carry your entire pitch. PureSaaS is your unfair advantage — ship a Series A-looking site on a solopreneur budget.",
+      "You've got the platform configured, the pricing figured out, and now you need a website that can carry your entire pitch. PureSaaS is your unfair advantage - ship a Series A-looking site on a solopreneur budget.",
     painPoints: ["No time or budget to hire a designer + developer", "Squarespace doesn't cut it for SaaS", "Staring at a blank canvas is costing you launch momentum"],
   },
   {
@@ -20,7 +20,7 @@ const personas = [
     role: "GHL Resellers Scaling Up",
     tagline: "Moving beyond DIY marketing",
     description:
-      "You've got clients and revenue, but your marketing site is a franken-site held together with hope and old copy. It's time to look like the $1,000/month platform you are — not the $197/month tool you started as.",
+      "You've got clients and revenue, but your marketing site is a franken-site held together with hope and old copy. It's time to look like the $1,000/month platform you are - not the $197/month tool you started as.",
     painPoints: ["Clients compare you to HighLevel's own site", "New leads don't convert from cold traffic", "Your site doesn't reflect the product's real capabilities"],
   },
   {
@@ -28,7 +28,7 @@ const personas = [
     role: "Niche SaaS Builders",
     tagline: "GHL for a specific vertical",
     description:
-      "You've productized GHL for restaurants, real estate, gyms, or medspas. Your template is already specific — now your website needs to speak directly to that niche with the right messaging architecture.",
+      "You've productized GHL for restaurants, real estate, gyms, or medspas. Your template is already specific - now your website needs to speak directly to that niche with the right messaging architecture.",
     painPoints: ["Generic templates speak to everyone and convert no one", "Your niche copy doesn't fit standard SaaS layouts", "You need sections for vertical-specific ROI and use cases"],
   },
 ];
@@ -88,7 +88,7 @@ export default function ForWhom() {
         {/* Bottom CTA nudge */}
         <div className="mt-12 text-center">
           <p className="text-slate-500 text-base">
-            If you recognized yourself in any of these —{" "}
+            If you recognized yourself in any of these -{" "}
             <a href="#pricing" className="text-orange-500 font-bold hover:underline">
               PureSaaS was built for you.
             </a>

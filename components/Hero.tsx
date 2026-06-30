@@ -25,7 +25,7 @@ export default function Hero() {
           </p>
           <p className="text-lg text-slate-400 max-w-xl mx-auto leading-relaxed mb-10">
             Stop losing deals to a generic site. Launch a professional, revenue-driving
-            marketing presence in days — not months.
+            marketing presence in days - not months.
           </p>
 
           {/* CTAs */}
@@ -34,7 +34,7 @@ export default function Hero() {
               href="#pricing"
               className="cta-glow bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl text-base transition-colors w-full sm:w-auto text-center"
             >
-              Get Instant Access — $97
+              Get Instant Access - $97
             </a>
             <a
               href="#pages"
@@ -73,7 +73,7 @@ export default function Hero() {
             <div className="relative overflow-hidden">
               <Image
                 src="/thumb.png"
-                alt="PureSaaS template preview — dark hero with bold headline and CTA"
+                alt="PureSaaS template preview - dark hero with bold headline and CTA"
                 width={1200}
                 height={800}
                 priority

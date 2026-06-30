@@ -26,7 +26,7 @@ export default function ProofBar() {
     <section className="bg-slate-900 py-16 border-y border-slate-800">
       <div className="max-w-6xl mx-auto px-6">
         <p className="text-center text-slate-400 text-xs font-semibold uppercase tracking-widest mb-12">
-          The data is clear — your website is your most important salesperson
+          The data is clear - your website is your most important salesperson
         </p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
           {stats.map((s) => (

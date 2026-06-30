@@ -17,7 +17,7 @@ export default function FinalCTA() {
 
         <p className="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed mb-4">
           Every day your current site is live, it&apos;s making prospects question whether
-          your platform is worth their money. PureSaaS ends that — permanently.
+          your platform is worth their money. PureSaaS ends that - permanently.
         </p>
         <p className="text-base text-slate-400 max-w-xl mx-auto leading-relaxed mb-12">
           11 pages. 67+ components. 4 themes. Full source code. One-time $97.
@@ -30,7 +30,7 @@ export default function FinalCTA() {
             href="#"
             className="cta-glow bg-orange-500 hover:bg-orange-600 text-white font-black px-10 py-5 rounded-xl text-lg transition-colors w-full sm:w-auto text-center shadow-xl shadow-orange-500/25"
           >
-            Get PureSaaS for $97 — Instant Access →
+            Get PureSaaS for $97 - Instant Access →
           </a>
         </div>
 

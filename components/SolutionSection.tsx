@@ -3,13 +3,13 @@ const pillars = [
     number: "01",
     title: "Persuasion Architecture",
     description:
-      "The home page follows an 18-section spine built on proven copywriting frameworks — AIDA, PAS, social proof sequencing — so every visitor follows a guided path to your CTA.",
+      "The home page follows an 18-section spine built on proven copywriting frameworks - AIDA, PAS, social proof sequencing - so every visitor follows a guided path to your CTA.",
   },
   {
     number: "02",
     title: "GHL-Specific Sections",
     description:
-      "AI showcase, integration hub, funnel builder demo, automation visualizer — sections that don't exist in generic templates because they're engineered specifically around GHL features.",
+      "AI showcase, integration hub, funnel builder demo, automation visualizer - sections that don't exist in generic templates because they're engineered specifically around GHL features.",
   },
   {
     number: "03",
@@ -21,7 +21,7 @@ const pillars = [
     number: "04",
     title: "11 Complete Pages",
     description:
-      "Home, Features, Pricing, Integrations, Blog, Contact, Demo, Thank You, Coming Soon — every page a prospect might visit is built, copy-framed, and ready to deploy.",
+      "Home, Features, Pricing, Integrations, Blog, Contact, Demo, Thank You, Coming Soon - every page a prospect might visit is built, copy-framed, and ready to deploy.",
   },
 ];
 
@@ -35,14 +35,14 @@ export default function SolutionSection() {
             The Solution
           </span>
           <h2 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight mb-5">
-            Meet PureSaaS —
+            Meet PureSaaS -
             <br />
             <span className="text-orange-500">The Template Built for GHL</span>
           </h2>
           <p className="text-lg text-slate-500 leading-relaxed">
             PureSaaS isn&apos;t a generic template with a fresh coat of paint.
             It&apos;s the only website template engineered from the ground up around
-            the specific conversion challenges of selling a GHL-powered white-label SaaS —
+            the specific conversion challenges of selling a GHL-powered white-label SaaS -
             and built to be lightweight, modular, and easy to make entirely your own.
           </p>
         </div>

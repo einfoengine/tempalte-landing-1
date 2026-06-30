@@ -121,7 +121,7 @@ export default function WhatYouGet() {
         <div id="pages" className="mb-16 scroll-mt-20">
           <h3 className="text-2xl font-black text-slate-900 mb-2">Every Page, Ready to Go</h3>
           <p className="text-slate-500 text-sm mb-8">
-            Every page a prospect might visit — built, structured, and copy-framed.
+            Every page a prospect might visit - built, structured, and copy-framed.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {pages.map((page) => (

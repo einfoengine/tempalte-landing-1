@@ -39,7 +39,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Gradient text — primary navy → indigo */
+/* Gradient text - primary navy → indigo */
 .gradient-text {
   background: linear-gradient(135deg, #04044a 0%, #2b2baa 100%);
   -webkit-background-clip: text;
@@ -64,7 +64,7 @@ body {
   animation: fadeUp 0.7s ease-out both;
 }
 
-/* Pulse glow for CTA — updated to primary color */
+/* Pulse glow for CTA - updated to primary color */
 @keyframes pulseGlow {
   0%, 100% { box-shadow: 0 0 0 0 rgba(4, 4, 74, 0.35); }
   50%       { box-shadow: 0 0 0 12px rgba(4, 4, 74, 0); }

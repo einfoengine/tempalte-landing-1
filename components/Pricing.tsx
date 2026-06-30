@@ -1,5 +1,5 @@
 const includes = [
-  "All 11 pages — fully built and structured",
+  "All 11 pages - fully built and structured",
   "67+ modular UI components",
   "18-section conversion-optimized home page",
   "4 design themes (Classic, Modern, Jamboo, Pluto)",
@@ -19,8 +19,8 @@ const includes = [
   "Lifetime access + free future updates",
   "Highly SEO friendly (meta, Open Graph, semantic HTML)",
   "AEO & GEO optimized structure for AI search engines",
-  "Brand customizable — CSS variables + centralized copy",
-  "Well documented — setup guide + data file reference",
+  "Brand customizable - CSS variables + centralized copy",
+  "Well documented - setup guide + data file reference",
   "Direct support access included",
 ];
 
@@ -57,7 +57,7 @@ export default function Pricing() {
             {/* Left: Price */}
             <div className="bg-orange-500 p-10 flex flex-col justify-center">
               <div className="text-orange-200 text-sm font-semibold uppercase tracking-widest mb-4">
-                PureSaaS — Complete Template
+                PureSaaS - Complete Template
               </div>
               <div className="flex items-baseline gap-2 mb-2">
                 <span className="text-white text-7xl font-black leading-none">$97</span>
@@ -82,7 +82,7 @@ export default function Pricing() {
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                   </svg>
-                  Full source code — yours to own
+                  Full source code - yours to own
                 </div>
                 <div className="flex items-center gap-2 text-orange-100 text-sm">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -153,7 +153,7 @@ export default function Pricing() {
           </div>
           <div className="text-center mt-6">
             <span className="text-slate-400 text-sm">vs. </span>
-            <span className="text-white font-bold">PureSaaS at $97 — instant access, full source code, done.</span>
+            <span className="text-white font-bold">PureSaaS at $97 - instant access, full source code, done.</span>
           </div>
         </div>
 

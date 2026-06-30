@@ -17,11 +17,11 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "PureSaaS — The Conversion-Ready Website Template for GHL SaaS Sellers",
+  title: "PureSaaS - The Conversion-Ready Website Template for GHL SaaS Sellers",
   description:
-    "Stop losing deals to a generic website. PureSaaS is a premium 11-page Next.js template built for GoHighLevel white-label SaaS sellers — launch a professional marketing site in days.",
+    "Stop losing deals to a generic website. PureSaaS is a premium 11-page Next.js template built for GoHighLevel white-label SaaS sellers - launch a professional marketing site in days.",
   openGraph: {
-    title: "PureSaaS — The Website Template Built for GHL SaaS Sellers",
+    title: "PureSaaS - The Website Template Built for GHL SaaS Sellers",
     description:
       "11 pages, 67+ components, 4 design themes. Engineered around the conversion logic of selling a GHL-powered SaaS. One-time purchase. Instant access.",
     type: "website",

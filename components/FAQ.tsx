@@ -5,19 +5,19 @@ import { useState } from "react";
 const faqs = [
   {
     q: "Do I need to know how to code to use PureSaaS?",
-    a: "You need basic Next.js familiarity — how to run a dev server and swap out text/images. If you've ever touched a React codebase, you'll be comfortable. All copy, colors, and data are centralized in simple TypeScript files so you don't need to dig through components.",
+    a: "You need basic Next.js familiarity - how to run a dev server and swap out text/images. If you've ever touched a React codebase, you'll be comfortable. All copy, colors, and data are centralized in simple TypeScript files so you don't need to dig through components.",
   },
   {
     q: "Is this a one-time purchase or does it require a subscription?",
-    a: "It's a one-time $97 purchase. You own the source code outright. No monthly fees, no license renewals, no platform lock-in. You deploy it wherever you want — Vercel, Netlify, your own server.",
+    a: "It's a one-time $97 purchase. You own the source code outright. No monthly fees, no license renewals, no platform lock-in. You deploy it wherever you want - Vercel, Netlify, your own server.",
   },
   {
     q: "Can I use PureSaaS for multiple client projects?",
-    a: "Yes. The license lets you use PureSaaS on unlimited projects — including projects you build for clients. The only restriction is reselling PureSaaS itself as a standalone template product.",
+    a: "Yes. The license lets you use PureSaaS on unlimited projects - including projects you build for clients. The only restriction is reselling PureSaaS itself as a standalone template product.",
   },
   {
     q: "How is the template delivered?",
-    a: "Immediately after purchase you'll receive a download link with the full Next.js source code. The project is pre-configured with all dependencies — run pnpm install and you're up in under 5 minutes.",
+    a: "Immediately after purchase you'll receive a download link with the full Next.js source code. The project is pre-configured with all dependencies - run pnpm install and you're up in under 5 minutes.",
   },
   {
     q: "How long does it take to customize and launch?",
@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     q: "What tech stack does this require?",
-    a: "Next.js 16, Node.js 18+, and pnpm. It deploys to any platform that supports Next.js — Vercel is the fastest option (free tier works fine). No database or backend required.",
+    a: "Next.js 16, Node.js 18+, and pnpm. It deploys to any platform that supports Next.js - Vercel is the fastest option (free tier works fine). No database or backend required.",
   },
   {
     q: "What if I'm not happy with it?",
@@ -37,11 +37,11 @@ const faqs = [
   },
   {
     q: "Will I get future updates?",
-    a: "Yes — future updates are included at no extra charge. As new sections, components, or theme variants are added to PureSaaS, you'll receive them.",
+    a: "Yes - future updates are included at no extra charge. As new sections, components, or theme variants are added to PureSaaS, you'll receive them.",
   },
   {
     q: "Can I see a live preview before buying?",
-    a: "A live preview link is available — check the top of this page or the pricing section for the 'See What's Inside' link. You can browse every page and section before committing.",
+    a: "A live preview link is available - check the top of this page or the pricing section for the 'See What's Inside' link. You can browse every page and section before committing.",
   },
 ];
 

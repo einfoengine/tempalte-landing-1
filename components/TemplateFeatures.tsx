@@ -4,7 +4,7 @@ const features = [
     title: "Highly SEO Friendly",
     badge: "Discovery",
     description:
-      "Semantic HTML5, optimized meta tags, Open Graph, Twitter Card, canonical URLs, and clean heading hierarchy baked in from day one — so every page Google crawls is ready to rank.",
+      "Semantic HTML5, optimized meta tags, Open Graph, Twitter Card, canonical URLs, and clean heading hierarchy baked in from day one - so every page Google crawls is ready to rank.",
     highlights: ["Semantic HTML5 structure", "Page-level meta + Open Graph", "Clean URL architecture", "Heading hierarchy (H1→H6)"],
     color: "border-blue-200 bg-blue-50",
     badgeColor: "bg-blue-100 text-blue-700",
@@ -26,7 +26,7 @@ const features = [
     title: "Customizable as per Brand",
     badge: "Branding",
     description:
-      "Every visual identity element lives in CSS custom properties — swap your brand color, font, and radius in seconds. Your logo, your palette, your voice. The template disappears; your brand appears.",
+      "Every visual identity element lives in CSS custom properties - swap your brand color, font, and radius in seconds. Your logo, your palette, your voice. The template disappears; your brand appears.",
     highlights: ["CSS variable design tokens", "Font swap in one line", "Brand color throughout", "Logo slot ready"],
     color: "border-orange-200 bg-orange-50",
     badgeColor: "bg-orange-100 text-orange-700",
@@ -37,7 +37,7 @@ const features = [
     title: "Easy to Customize",
     badge: "DX",
     description:
-      "All site copy lives in 6 centralized TypeScript data files — no hunting through 67 components to change a headline. Update pricing, features, FAQs, integrations, and contact info in one place.",
+      "All site copy lives in 6 centralized TypeScript data files - no hunting through 67 components to change a headline. Update pricing, features, FAQs, integrations, and contact info in one place.",
     highlights: ["6 centralized data files", "No component hunting", "Typed data structures", "Change copy without touching JSX"],
     color: "border-yellow-200 bg-yellow-50",
     badgeColor: "bg-yellow-100 text-yellow-700",
@@ -48,7 +48,7 @@ const features = [
     title: "Well Documented",
     badge: "Docs",
     description:
-      "Every data file, component, and theme variant is documented. The setup guide walks you from clone to deployed in under an hour — even if you've never touched a Next.js project.",
+      "Every data file, component, and theme variant is documented. The setup guide walks you from clone to deployed in under an hour - even if you've never touched a Next.js project.",
     highlights: ["Full setup guide included", "Data file documentation", "Component reference", "Theme customization guide"],
     color: "border-teal-200 bg-teal-50",
     badgeColor: "bg-teal-100 text-teal-700",
@@ -81,7 +81,7 @@ const features = [
     title: "Well Modularized",
     badge: "Architecture",
     description:
-      "67+ components are independently usable — drop any section into any page with no side effects. Each module owns its own data, styles, and logic. Nothing breaks when you move things around.",
+      "67+ components are independently usable - drop any section into any page with no side effects. Each module owns its own data, styles, and logic. Nothing breaks when you move things around.",
     highlights: ["67+ standalone components", "No shared global state", "Drop-in section architecture", "Clear naming conventions"],
     color: "border-rose-200 bg-rose-50",
     badgeColor: "bg-rose-100 text-rose-700",
@@ -110,13 +110,13 @@ export default function TemplateFeatures() {
             Why PureSaaS
           </span>
           <h2 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight mb-5">
-            Not Just Pretty — Built to
+            Not Just Pretty - Built to
             <br />
             <span className="gradient-text">Perform and Scale</span>
           </h2>
           <p className="text-lg text-slate-500 leading-relaxed">
             Most templates look good in the preview and fall apart in production.
-            PureSaaS is engineered for real-world use — from SEO ranking to
+            PureSaaS is engineered for real-world use - from SEO ranking to
             AI search visibility to developer experience.
           </p>
         </div>
@@ -157,7 +157,7 @@ export default function TemplateFeatures() {
           ))}
         </div>
 
-        {/* Bottom row — 3 remaining in a wider layout */}
+        {/* Bottom row - 3 remaining in a wider layout */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {features.slice(6).map((f) => (
             <div
@@ -195,14 +195,14 @@ export default function TemplateFeatures() {
               SEO · AEO · GEO · Fast · Modular · Documented · Supported
             </div>
             <div className="text-slate-400 text-sm">
-              Every quality bar a professional product website needs to clear — all in one template.
+              Every quality bar a professional product website needs to clear - all in one template.
             </div>
           </div>
           <a
             href="#pricing"
             className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-7 py-3.5 rounded-xl text-sm transition-colors whitespace-nowrap shrink-0"
           >
-            Get the Template — $97 →
+            Get the Template - $97 →
           </a>
         </div>
       </div>

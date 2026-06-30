@@ -3,7 +3,7 @@ const problems = [
     icon: "⏱",
     title: "Visitors leave in 15 seconds",
     description:
-      "Your hero says nothing specific. Prospects can't immediately tell who you help, what you do, or why they should care — so they bounce to someone who's clearer.",
+      "Your hero says nothing specific. Prospects can't immediately tell who you help, what you do, or why they should care - so they bounce to someone who's clearer.",
   },
   {
     icon: "🎭",
@@ -15,7 +15,7 @@ const problems = [
     icon: "🧩",
     title: "No feature showcase that sells",
     description:
-      "Your platform does CRM, AI, automation, payments, funnels — but your website lists features like a spec sheet. Prospects can't visualize the value.",
+      "Your platform does CRM, AI, automation, payments, funnels - but your website lists features like a spec sheet. Prospects can't visualize the value.",
   },
   {
     icon: "💸",
@@ -27,7 +27,7 @@ const problems = [
     icon: "🤖",
     title: "AI capabilities buried or absent",
     description:
-      "AI is the biggest differentiator of the GHL platform. If your site doesn't show it — with names, use cases, and examples — you're leaving your best selling point invisible.",
+      "AI is the biggest differentiator of the GHL platform. If your site doesn't show it - with names, use cases, and examples - you're leaving your best selling point invisible.",
   },
   {
     icon: "🔗",
@@ -39,13 +39,13 @@ const problems = [
     icon: "⭐",
     title: "Social proof scattered or missing",
     description:
-      "Trust is the final gatekeeper. A testimonial wall, featured case study, and logo bar need to be woven through the entire site — not an afterthought at the bottom.",
+      "Trust is the final gatekeeper. A testimonial wall, featured case study, and logo bar need to be woven through the entire site - not an afterthought at the bottom.",
   },
   {
     icon: "📈",
     title: "No conversion architecture",
     description:
-      "Every section should pull the visitor toward one action. Without a persuasion framework behind the page structure, traffic becomes noise — not pipeline.",
+      "Every section should pull the visitor toward one action. Without a persuasion framework behind the page structure, traffic becomes noise - not pipeline.",
   },
 ];
 
@@ -65,7 +65,7 @@ export default function ProblemSection() {
           </h2>
           <p className="text-lg text-slate-500 leading-relaxed">
             Most GHL SaaS sellers are running a six-figure platform behind a website
-            that costs them deals every single day. Here&apos;s exactly what&apos;s going wrong —
+            that costs them deals every single day. Here&apos;s exactly what&apos;s going wrong -
             and why each problem is quietly bleeding revenue.
           </p>
         </div>

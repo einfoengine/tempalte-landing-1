@@ -23,7 +23,7 @@ const sections = [
   {
     number: "04",
     name: "All-in-One Value Prop",
-    desc: "Platform consolidation messaging — replaces 6-10 tools with one.",
+    desc: "Platform consolidation messaging - replaces 6-10 tools with one.",
     category: "Solution",
     color: "bg-green-500",
   },
@@ -58,7 +58,7 @@ const sections = [
   {
     number: "09",
     name: "Section Marquee",
-    desc: "Scrolling benefit ribbon — keeps energy up between heavy content sections.",
+    desc: "Scrolling benefit ribbon - keeps energy up between heavy content sections.",
     category: "Momentum",
     color: "bg-orange-500",
   },
@@ -72,14 +72,14 @@ const sections = [
   {
     number: "11",
     name: "Mid-Page CTA",
-    desc: "Full-width conversion strip — catches the reader before they lose steam.",
+    desc: "Full-width conversion strip - catches the reader before they lose steam.",
     category: "Conversion",
     color: "bg-orange-500",
   },
   {
     number: "12",
     name: "Comparison Table",
-    desc: "Platform vs. legacy stack (HubSpot, ActiveCampaign, Twilio) — feature-by-feature.",
+    desc: "Platform vs. legacy stack (HubSpot, ActiveCampaign, Twilio) - feature-by-feature.",
     category: "Trust",
     color: "bg-blue-500",
   },
@@ -155,7 +155,7 @@ export default function KeySections() {
             18 Sections. Zero Guesswork.
           </h2>
           <p className="text-lg text-slate-500 leading-relaxed">
-            Every section of the home page follows a deliberate persuasion sequence —
+            Every section of the home page follows a deliberate persuasion sequence -
             from first impression to conversion. Here&apos;s exactly what your visitors walk through.
           </p>
         </div>
