@@ -35,12 +35,12 @@ export default function HowItWorks({ showHeader = true }: { showHeader?: boolean
       <div className="max-w-6xl mx-auto px-6">
         {showHeader && (
           <div className="max-w-3xl mb-14">
-            <span className="inline-block text-orange-600 font-semibold text-sm uppercase tracking-widest mb-4">How it works</span>
-            <h2 className="text-3xl md:text-4xl tracking-tight text-slate-900 leading-tight mb-4">
+            <span className="inline-block text-orange-600 dark:text-orange-400 font-semibold text-sm uppercase tracking-widest mb-4">How it works</span>
+            <h2 className="text-3xl md:text-4xl tracking-tight text-slate-900 dark:text-white leading-tight mb-4">
               <span className="font-light">You pick. </span>
               <span className="font-bold">We <span className="gw-kw">build</span>.</span>
             </h2>
-            <p className="text-lg text-slate-500 leading-relaxed">
+            <p className="text-lg text-slate-500 dark:text-slate-400 leading-relaxed">
               There&apos;s nothing to download and nothing to configure. You choose
               the design, send us your brand, and we hand back a finished website
               on your domain — usually inside a week.
@@ -50,10 +50,10 @@ export default function HowItWorks({ showHeader = true }: { showHeader?: boolean
 
         <ol className="grid md:grid-cols-3 gap-6 mb-12">
           {STEPS.map((step) => (
-            <li key={step.number} className="relative bg-white rounded-2xl border border-slate-200 p-7">
+            <li key={step.number} className="relative bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 p-7">
               <span className="font-display font-bold text-4xl text-slate-100 tracking-tight absolute top-5 right-6 select-none">{step.number}</span>
-              <h3 className="font-bold text-slate-900 text-lg mb-2.5 relative">{step.title}</h3>
-              <p className="text-sm text-slate-500 leading-relaxed relative">{step.body}</p>
+              <h3 className="font-bold text-slate-900 dark:text-white text-lg mb-2.5 relative">{step.title}</h3>
+              <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed relative">{step.body}</p>
             </li>
           ))}
         </ol>

@@ -14,11 +14,11 @@ export default function NotFound() {
           <p className="font-display font-bold text-6xl text-slate-200 tracking-tight mb-4">
             404
           </p>
-          <h1 className="text-3xl sm:text-4xl tracking-tight text-slate-900 mb-4">
+          <h1 className="text-3xl sm:text-4xl tracking-tight text-slate-900 dark:text-white mb-4">
             <span className="font-light">We can&apos;t find that </span>
             <span className="font-bold">page</span>
           </h1>
-          <p className="text-slate-500 max-w-md mx-auto mb-8">
+          <p className="text-slate-500 dark:text-slate-400 max-w-md mx-auto mb-8">
             It may have been moved or renamed — and if you were after a theme, it
             might not be in the library yet. The full catalog is one click away.
           </p>
@@ -34,7 +34,7 @@ export default function NotFound() {
             </Link>
             <Link
               href="/"
-              className="text-slate-700 font-semibold px-8 py-4 rounded-full border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-colors w-full sm:w-auto text-center shrink-0"
+              className="text-slate-700 dark:text-slate-200 font-semibold px-8 py-4 rounded-full border border-slate-200 dark:border-slate-700 hover:border-slate-300 hover:bg-slate-50 transition-colors w-full sm:w-auto text-center shrink-0"
             >
               Back to home
             </Link>

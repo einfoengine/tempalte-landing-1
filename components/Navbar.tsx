@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import ThemeToggle from "@/components/ThemeToggle";
 
 /* Plan nav is Templates · UI kits · Packages · Method · Support. UI kits and
    Method are Sprint 2 — added here the moment they exist so nothing 404s. */
@@ -20,8 +21,8 @@ const MOBILE_EXTRA = [
 
 function Wordmark() {
   return (
-    <span className="font-extrabold text-slate-900 text-lg tracking-tight lowercase">
-      ghl<span className="text-orange-600">saas</span>theme
+    <span className="font-extrabold text-slate-900 dark:text-white text-lg tracking-tight lowercase">
+      ghl<span className="text-orange-600 dark:text-orange-400">saas</span>theme
     </span>
   );
 }
@@ -32,7 +33,7 @@ export default function Navbar() {
   const isActive = (href: string) => pathname === href || pathname.startsWith(href + "/");
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100">
+    <header className="sticky top-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-100 dark:border-slate-800">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
           <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center shadow-md shadow-orange-500/30">
@@ -57,6 +58,7 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
+          <ThemeToggle />
           <Link
             href="/templates"
             className="hidden sm:inline-flex bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white text-sm font-bold px-5 py-2.5 rounded-full transition-colors shadow-md shadow-orange-500/25"
@@ -70,7 +72,7 @@ export default function Navbar() {
             aria-expanded={open}
             aria-controls="gw-mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}
-            className="md:hidden w-10 h-10 -mr-2 flex items-center justify-center text-slate-700"
+            className="md:hidden w-10 h-10 -mr-2 flex items-center justify-center text-slate-700 dark:text-slate-200"
           >
             <div className="w-5 flex flex-col gap-1.5">
               <span className={`h-0.5 bg-current rounded-full transition-transform ${open ? "translate-y-2 rotate-45" : ""}`} />
@@ -82,7 +84,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <nav id="gw-mobile-menu" className="md:hidden border-t border-slate-100 bg-white px-6 py-4">
+        <nav id="gw-mobile-menu" className="md:hidden border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 py-4">
           <div className="flex flex-col">
             {[...LINKS, ...MOBILE_EXTRA].map((link) => (
               <Link

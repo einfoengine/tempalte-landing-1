@@ -83,17 +83,17 @@ const themes = [
 
 export default function WhatYouGet() {
   return (
-    <section id="theme-contents" className="bg-white py-24">
+    <section id="theme-contents" className="bg-white dark:bg-slate-900 py-24">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <span className="inline-block text-orange-500 font-semibold text-sm uppercase tracking-widest mb-4">
             Everything Inside
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight mb-5">
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white leading-tight mb-5">
             One Purchase. Complete Website.
           </h2>
-          <p className="text-lg text-slate-500 leading-relaxed">
+          <p className="text-lg text-slate-500 dark:text-slate-400 leading-relaxed">
             No piecemeal plugins, no missing pages, no design work. Every component,
             page, and section you need to represent your GHL SaaS like a serious company.
           </p>
@@ -109,18 +109,18 @@ export default function WhatYouGet() {
           ].map((item) => (
             <div
               key={item.value}
-              className="text-center bg-slate-50 rounded-2xl border border-slate-200 py-8 px-4"
+              className="text-center bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 py-8 px-4"
             >
               <div className="text-4xl font-black text-orange-500 mb-1">{item.value}</div>
-              <div className="text-slate-600 text-sm font-semibold">{item.label}</div>
+              <div className="text-slate-600 dark:text-slate-300 text-sm font-semibold">{item.label}</div>
             </div>
           ))}
         </div>
 
         {/* Pages Grid */}
         <div id="pages" className="mb-16 scroll-mt-20">
-          <h3 className="text-2xl font-black text-slate-900 mb-2">Every Page, Ready to Go</h3>
-          <p className="text-slate-500 text-sm mb-8">
+          <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-2">Every Page, Ready to Go</h3>
+          <p className="text-slate-500 dark:text-slate-400 text-sm mb-8">
             Every page a prospect might visit - built, structured, and copy-framed.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -155,11 +155,11 @@ export default function WhatYouGet() {
 
         {/* Components */}
         <div className="mb-16">
-          <h3 className="text-2xl font-black text-slate-900 mb-2">67+ Production Components</h3>
-          <p className="text-slate-500 text-sm mb-8">
+          <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-2">67+ Production Components</h3>
+          <p className="text-slate-500 dark:text-slate-400 text-sm mb-8">
             Modular, reusable, and consistently named. Customize any section in minutes.
           </p>
-          <div className="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden">
+          <div className="bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
             {components.map((comp, i) => (
               <div
                 key={comp.category}
@@ -168,10 +168,10 @@ export default function WhatYouGet() {
                 }`}
               >
                 <div className="flex items-center gap-3 w-52 shrink-0">
-                  <div className="w-8 h-8 bg-white rounded-lg border border-slate-200 flex items-center justify-center text-sm font-black text-orange-500">
+                  <div className="w-8 h-8 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700 flex items-center justify-center text-sm font-black text-orange-500">
                     {comp.count}
                   </div>
-                  <span className="font-semibold text-slate-800 text-sm">{comp.category}</span>
+                  <span className="font-semibold text-slate-800 dark:text-slate-100 text-sm">{comp.category}</span>
                 </div>
                 <p className="text-slate-400 text-sm leading-relaxed pt-1">{comp.items}</p>
               </div>
@@ -181,24 +181,24 @@ export default function WhatYouGet() {
 
         {/* Themes */}
         <div>
-          <h3 className="text-2xl font-black text-slate-900 mb-2">4 Design Themes + Light/Dark Mode</h3>
-          <p className="text-slate-500 text-sm mb-8">
+          <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-2">4 Design Themes + Light/Dark Mode</h3>
+          <p className="text-slate-500 dark:text-slate-400 text-sm mb-8">
             Switch your entire site&apos;s visual identity by changing a single attribute. Each theme ships with full light and dark variants.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {themes.map((theme) => (
               <div
                 key={theme.name}
-                className="bg-slate-50 border border-slate-200 rounded-2xl p-5 hover:border-slate-300 hover:bg-white transition-all"
+                className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 hover:border-slate-300 hover:bg-white transition-all"
               >
                 <div className="flex items-center gap-3 mb-3">
                   <div
                     className="w-5 h-5 rounded-full border-2 border-white shadow-md"
                     style={{ backgroundColor: theme.dot }}
                   />
-                  <span className="font-bold text-slate-800 text-sm">{theme.name}</span>
+                  <span className="font-bold text-slate-800 dark:text-slate-100 text-sm">{theme.name}</span>
                 </div>
-                <p className="text-slate-500 text-xs leading-relaxed">{theme.desc}</p>
+                <p className="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">{theme.desc}</p>
               </div>
             ))}
           </div>

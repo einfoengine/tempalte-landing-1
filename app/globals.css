@@ -1,11 +1,23 @@
 @import "tailwindcss";
 
+/* Class-based dark mode (Tailwind v4 syntax). The `.dark` class is set on <html>
+   by the inline script in layout.tsx before first paint, so there's no flash. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #0f172a;
   --primary: #047857;
   /* Accent only — swashes and highlights. Never a text or CTA colour. */
   --accent-lime: rgba(163, 230, 53, 0.55);
+}
+
+.dark {
+  --background: #0b1120;
+  --foreground: #e2e8f0;
+  /* Lime is a highlighter behind dark text in light mode; on a dark ground it
+     needs to be dimmer or the swash glares. */
+  --accent-lime: rgba(163, 230, 53, 0.32);
 }
 
 @theme inline {
@@ -32,6 +44,124 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Space Grotesk', var(--font-space-grotesk), sans-serif;
 }
 
+/* ── Effects ───────────────────────────────────────────────────────────────
+   All brand-native: emerald + lime only, no new hues. All motion is disabled
+   under prefers-reduced-motion at the bottom of this block.
+
+   Deliberately NOT used behind template covers — the catalog grids stay plain
+   so screenshots carry the colour. These live on dark, cover-free sections. */
+
+/* Aurora — slow drifting emerald wash for dark sections.
+   Uses animated background-position on radial gradients rather than blurred
+   pseudo-elements: a large blur() filter is expensive to composite, this is
+   effectively free. */
+.gw-aurora {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(38rem 20rem at 12% 18%, rgba(16, 185, 129, 0.16), transparent 62%),
+    radial-gradient(34rem 18rem at 88% 78%, rgba(4, 120, 87, 0.22), transparent 62%),
+    radial-gradient(28rem 16rem at 60% 8%, rgba(163, 230, 53, 0.07), transparent 60%);
+  background-repeat: no-repeat;
+  animation: gwAurora 26s ease-in-out infinite alternate;
+}
+@keyframes gwAurora {
+  from { background-position: 0% 0%, 100% 100%, 50% 0%; }
+  to   { background-position: 10% 8%, 90% 92%, 56% 6%; }
+}
+
+/* Spotlight — emerald glow that follows the cursor across a card.
+   --gw-x / --gw-y are set by SpotlightCard on pointer move. */
+.gw-spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  background: radial-gradient(
+    16rem circle at var(--gw-x, 50%) var(--gw-y, 50%),
+    rgba(16, 185, 129, 0.14),
+    transparent 45%
+  );
+}
+.gw-spotlight:hover::before { opacity: 1; }
+
+/* 3D magnetic tilt. transform is set inline by SpotlightCard; this supplies the
+   easing and the return-to-rest. transform-style/backface keep the card crisp
+   while rotated. Disabled under reduced motion at the block below. */
+.gw-tilt {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Marquee — seamless horizontal scroll. Track holds the content twice; one
+   copy's width is 50%, so translating -50% loops without a visible seam. */
+.gw-marquee { overflow: hidden; }
+.gw-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: gwMarquee 42s linear infinite;
+}
+.gw-marquee:hover .gw-marquee-track { animation-play-state: paused; }
+@keyframes gwMarquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gw-aurora,
+  .gw-marquee-track {
+    animation: none !important;
+  }
+  .gw-spotlight::before { display: none; }
+  .gw-tilt { transform: none !important; transition: none !important; }
+}
+
+/* Scroll reveal — fires in BOTH directions, every time a block re-enters view.
+   Content is VISIBLE by default: the hidden state is only applied by JS once an
+   observer is attached, so with JS disabled (or a failed hydration) nothing is
+   ever stuck invisible and crawlers always see the content.
+
+   --gw-reveal-from is set per element by Reveal.tsx: positive when the block is
+   below the viewport (rises into place), negative when it's above (drops in). */
+[data-gw-reveal="pending"] {
+  opacity: 0;
+  transform: translateY(var(--gw-reveal-from, 14px));
+  /* Transition on the way OUT too, so reversing scroll direction mid-animation
+     eases rather than snapping. */
+  transition: opacity 0.4s ease-in, transform 0.4s ease-in;
+}
+[data-gw-reveal="in"] {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-gw-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Focus cards — hovering one card recedes its siblings so the hovered one
+   reads as chosen. Pure CSS via :has(); no JS, no dependency. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .gw-focus-grid:has(> a:hover) > a:not(:hover) {
+    opacity: 0.5;
+    transform: scale(0.985);
+  }
+  .gw-focus-grid > a {
+    transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease,
+      border-color 0.3s ease;
+  }
+}
+
 /* Swipe callout — tinted block with an accent left border, for pull-quotes and
    reassurance strips. Emerald-tinted to match the brand. */
 .gw-swipe {
@@ -41,6 +171,10 @@ h1, h2, h3, h4, h5, h6 {
   padding: 12px 16px;
   margin: 10px 0;
   max-width: 700px;
+}
+.dark .gw-swipe {
+  background: rgba(4, 120, 87, 0.14);
+  border-left-color: #10b981;
 }
 
 /* Keyword highlighter — lime swash under a word, borrowed from the agency ref.
@@ -86,6 +220,9 @@ body {
   height: 1px;
   background: linear-gradient(to right, transparent, #e2e8f0, transparent);
 }
+.dark .gw-section-divider {
+  background: linear-gradient(to right, transparent, #1e293b, transparent);
+}
 
 /* Hide the native scrollbar where a custom scroller is supplied instead.
    Only use this when a visible, draggable replacement exists — otherwise it
@@ -125,12 +262,17 @@ body {
   background-size: 22px 22px;
   position: relative;
 }
+.dark .gw-hero-dot-bg,
+.dark.gw-hero-dot-bg {
+  background-color: #0b1120;
+  background-image: radial-gradient(circle, rgba(16, 185, 129, 0.16) 1.5px, transparent 1.5px);
+}
 
 /* Radial fade so dots disappear toward the bottom */
 .gw-hero-dot-bg::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 100% 70% at 50% 0%, transparent 20%, #ffffff 100%);
+  background: radial-gradient(ellipse 100% 70% at 50% 0%, transparent 20%, var(--background) 100%);
   pointer-events: none;
 }

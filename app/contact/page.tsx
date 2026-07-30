@@ -31,17 +31,17 @@ export default function ContactPage() {
         <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-10 items-start">
           {/* Left — how to reach + what happens */}
           <div>
-            <div className="rounded-2xl border border-slate-200 bg-white p-7 mb-6">
-              <h2 className="font-bold text-slate-900 text-lg tracking-tight mb-4">
+            <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-7 mb-6">
+              <h2 className="font-bold text-slate-900 dark:text-white text-lg tracking-tight mb-4">
                 Reach us directly
               </h2>
               <div className="space-y-4">
                 <a href="mailto:hello@growx.com" className="flex items-center gap-3 group">
-                  <span className="w-10 h-10 rounded-xl bg-orange-50 border border-orange-100 flex items-center justify-center text-orange-600 shrink-0">
+                  <span className="w-10 h-10 rounded-xl bg-orange-50 dark:bg-orange-500/15 border border-orange-100 dark:border-orange-500/30 flex items-center justify-center text-orange-600 dark:text-orange-400 shrink-0">
                     ✉
                   </span>
                   <span>
-                    <span className="block text-sm font-semibold text-slate-800 group-hover:text-orange-600 transition-colors">
+                    <span className="block text-sm font-semibold text-slate-800 dark:text-slate-100 group-hover:text-orange-600 transition-colors">
                       hello@growx.com
                     </span>
                     <span className="block text-xs text-slate-400">
@@ -52,8 +52,8 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-7">
-              <h2 className="font-bold text-slate-900 text-lg tracking-tight mb-5">
+            <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 p-7">
+              <h2 className="font-bold text-slate-900 dark:text-white text-lg tracking-tight mb-5">
                 What happens next
               </h2>
               <ol className="space-y-4">
@@ -63,10 +63,10 @@ export default function ContactPage() {
                       {i + 1}
                     </span>
                     <span>
-                      <span className="block text-sm font-semibold text-slate-800">
+                      <span className="block text-sm font-semibold text-slate-800 dark:text-slate-100">
                         {step.title}
                       </span>
-                      <span className="block text-sm text-slate-500">{step.body}</span>
+                      <span className="block text-sm text-slate-500 dark:text-slate-400">{step.body}</span>
                     </span>
                   </li>
                 ))}
@@ -77,21 +77,21 @@ export default function ContactPage() {
           {/* Right — GHL booking widget slot. Dogfoods the product: this is the
               exact embed you set up for members' sites. Wire up the real
               calendar/form embed code here. */}
-          <div className="rounded-2xl border-2 border-dashed border-slate-300 bg-white p-8 min-h-[26rem] flex flex-col items-center justify-center text-center">
-            <span className="w-14 h-14 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center text-2xl mb-4">
+          <div className="rounded-2xl border-2 border-dashed border-slate-300 bg-white dark:bg-slate-900 p-8 min-h-[26rem] flex flex-col items-center justify-center text-center">
+            <span className="w-14 h-14 rounded-2xl bg-orange-50 dark:bg-orange-500/15 border border-orange-100 dark:border-orange-500/30 flex items-center justify-center text-2xl mb-4">
               📅
             </span>
-            <h2 className="font-bold text-slate-900 text-lg tracking-tight mb-2">
+            <h2 className="font-bold text-slate-900 dark:text-white text-lg tracking-tight mb-2">
               Booking widget goes here
             </h2>
-            <p className="text-sm text-slate-500 max-w-sm leading-relaxed mb-4">
+            <p className="text-sm text-slate-500 dark:text-slate-400 max-w-sm leading-relaxed mb-4">
               Embed your GoHighLevel calendar or contact form in this slot — the
               same embed you&apos;ll drop into every member&apos;s site. Until
               then, email works fine.
             </p>
             <a
               href="mailto:hello@growx.com?subject=Question%20about%20Theme%20Club"
-              className="inline-flex items-center gap-2 text-orange-600 font-bold text-sm hover:underline"
+              className="inline-flex items-center gap-2 text-orange-600 dark:text-orange-400 font-bold text-sm hover:underline"
             >
               Email us instead →
             </a>

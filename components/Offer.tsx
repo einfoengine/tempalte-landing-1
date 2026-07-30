@@ -19,7 +19,7 @@ export function OfferCard({
   const ctaHref = templateSlug ? `/start?template=${templateSlug}` : "/templates";
   const ctaLabel = templateName ? `Build with ${templateName} →` : "Pick a template →";
   return (
-    <div className="max-w-5xl mx-auto rounded-2xl border border-slate-200 bg-white shadow-xl overflow-hidden">
+    <div className="max-w-5xl mx-auto rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-xl overflow-hidden">
       <div className="grid md:grid-cols-[minmax(0,20rem)_1fr]">
         {/* Left — price + CTA */}
         <div className="bg-orange-500 p-8 md:p-10 flex flex-col justify-center text-center md:text-left">
@@ -36,7 +36,7 @@ export function OfferCard({
           </p>
           <Link
             href={ctaHref}
-            className="gw-cta-glow inline-flex items-center justify-center gap-2 bg-white hover:bg-orange-50 text-orange-600 font-bold px-6 py-3.5 rounded-full transition-colors"
+            className="gw-cta-glow inline-flex items-center justify-center gap-2 bg-white dark:bg-slate-900 hover:bg-orange-50 text-orange-600 dark:text-orange-400 font-bold px-6 py-3.5 rounded-full transition-colors"
           >
             {ctaLabel}
           </Link>
@@ -74,15 +74,15 @@ export function OfferCard({
 
 export default function Offer() {
   return (
-    <section id="gw-offer" className="bg-white py-20 scroll-mt-20">
+    <section id="gw-offer" className="bg-white dark:bg-slate-900 py-20 scroll-mt-20">
       <div className="max-w-5xl mx-auto px-6">
         <div className="max-w-2xl mx-auto text-center mb-12">
-          <span className="inline-block text-orange-600 font-semibold text-sm uppercase tracking-widest mb-4">Pricing</span>
-          <h2 className="text-4xl md:text-5xl tracking-tight text-slate-900 leading-tight mb-5">
-            <span className="font-light text-slate-500">Pick one design. </span>
+          <span className="inline-block text-orange-600 dark:text-orange-400 font-semibold text-sm uppercase tracking-widest mb-4">Pricing</span>
+          <h2 className="text-4xl md:text-5xl tracking-tight text-slate-900 dark:text-white leading-tight mb-5">
+            <span className="font-light text-slate-500 dark:text-slate-400">Pick one design. </span>
             <span className="font-bold">One price, <span className="gw-kw">everything included</span>.</span>
           </h2>
-          <p className="text-lg text-slate-500 leading-relaxed">
+          <p className="text-lg text-slate-500 dark:text-slate-400 leading-relaxed">
             No packages, no tiers, no monthly fee. Pick the design you want and we build your
             website from it — in your brand, connected to your GoHighLevel, with{" "}
             {OFFER.supportMonths} months of technical support included.
@@ -106,11 +106,11 @@ export default function Offer() {
 
         {/* Guarantee */}
         <div className="mt-8 gw-swipe max-w-none">
-          <div className="text-orange-600 font-mono text-[10px] font-bold uppercase tracking-widest mb-2">Guarantee</div>
-          <p className="font-display font-bold text-lg text-slate-900 mb-1">
+          <div className="text-orange-600 dark:text-orange-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-2">Guarantee</div>
+          <p className="font-display font-bold text-lg text-slate-900 dark:text-white mb-1">
             Live within 7 days of getting your details — or your money back.
           </p>
-          <p className="text-sm text-slate-600">And what you see is what you get: the design you picked is the site you launch, rebuilt in your brand.</p>
+          <p className="text-sm text-slate-600 dark:text-slate-300">And what you see is what you get: the design you picked is the site you launch, rebuilt in your brand.</p>
         </div>
       </div>
     </section>

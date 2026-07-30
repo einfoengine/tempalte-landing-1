@@ -34,9 +34,9 @@ export default function LegalPage({
           <div className="space-y-10">
             {sections.map((s) => (
               <div key={s.heading}>
-                <h2 className="text-lg font-bold text-slate-900 tracking-tight mb-3">{s.heading}</h2>
+                <h2 className="text-lg font-bold text-slate-900 dark:text-white tracking-tight mb-3">{s.heading}</h2>
                 {s.body.map((p, i) => (
-                  <p key={i} className="text-sm text-slate-500 leading-relaxed mb-3">{p}</p>
+                  <p key={i} className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-3">{p}</p>
                 ))}
               </div>
             ))}

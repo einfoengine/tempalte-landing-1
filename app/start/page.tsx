@@ -26,15 +26,15 @@ export default function StartPage() {
       <main className="gw-hero-dot-bg">
         <section id="gw-start-build" className="relative z-10 max-w-4xl mx-auto px-6 py-20">
           <div className="text-center mb-14">
-            <span className="inline-flex items-center gap-2 bg-orange-50 text-orange-600 text-sm font-semibold px-4 py-1.5 rounded-full border border-orange-100 mb-7">
+            <span className="inline-flex items-center gap-2 bg-orange-50 dark:bg-orange-500/15 text-orange-600 dark:text-orange-400 text-sm font-semibold px-4 py-1.5 rounded-full border border-orange-100 dark:border-orange-500/30 mb-7">
               <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
               {OFFER.slotsPerMonth} customization slots a month · Limited capacity
             </span>
-            <h1 className="text-4xl sm:text-5xl text-slate-900 leading-[1.05] tracking-tight mb-5">
-              <span className="block font-light text-slate-500">Let&apos;s launch</span>
+            <h1 className="text-4xl sm:text-5xl text-slate-900 dark:text-white leading-[1.05] tracking-tight mb-5">
+              <span className="block font-light text-slate-500 dark:text-slate-400">Let&apos;s launch</span>
               <span className="block font-bold">your <span className="gw-kw">site</span></span>
             </h1>
-            <p className="text-lg text-slate-500 max-w-xl mx-auto leading-relaxed">
+            <p className="text-lg text-slate-500 dark:text-slate-400 max-w-xl mx-auto leading-relaxed">
               {price(OFFER.price)} — we build your site from the template in your
               brand, wire your CRM, and support it free for {OFFER.supportMonths}{" "}
               months. Live in {buildRange()}. You own it, no lock-in.
@@ -43,17 +43,17 @@ export default function StartPage() {
 
           <ol className="grid md:grid-cols-3 gap-5 mb-12">
             {WHAT_HAPPENS.map((step) => (
-              <li key={step.number} className="relative bg-white rounded-2xl border border-slate-200 p-6">
+              <li key={step.number} className="relative bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 p-6">
                 <span className="font-display font-bold text-3xl text-slate-100 tracking-tight absolute top-4 right-5 select-none">{step.number}</span>
-                <h2 className="font-bold text-slate-900 mb-2 relative text-base">{step.title}</h2>
-                <p className="text-sm text-slate-500 leading-relaxed relative">{step.body}</p>
+                <h2 className="font-bold text-slate-900 dark:text-white mb-2 relative text-base">{step.title}</h2>
+                <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed relative">{step.body}</p>
               </li>
             ))}
           </ol>
 
-          <div className="bg-white rounded-2xl border border-slate-200 p-8 text-center shadow-sm">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 p-8 text-center shadow-sm">
             <p className="text-sm text-slate-400 mb-2">Ready when you are</p>
-            <p className="font-display font-bold text-3xl text-slate-900 tracking-tight mb-6">
+            <p className="font-display font-bold text-3xl text-slate-900 dark:text-white tracking-tight mb-6">
               {price(OFFER.price)}<span className="text-lg font-semibold text-slate-400"> built for you</span>
             </p>
             <a
@@ -65,8 +65,8 @@ export default function StartPage() {
             </a>
             <p className="text-xs text-slate-400 mt-4">
               Not sure which template?{" "}
-              <Link href="/templates" className="text-orange-600 font-semibold hover:underline">Browse all {TEMPLATES.length}</Link>{" "}
-              or <Link href="/pricing" className="text-orange-600 font-semibold hover:underline">see what&apos;s included</Link>.
+              <Link href="/templates" className="text-orange-600 dark:text-orange-400 font-semibold hover:underline">Browse all {TEMPLATES.length}</Link>{" "}
+              or <Link href="/pricing" className="text-orange-600 dark:text-orange-400 font-semibold hover:underline">see what&apos;s included</Link>.
             </p>
           </div>
         </section>

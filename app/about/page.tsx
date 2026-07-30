@@ -49,12 +49,12 @@ export default function AboutPage() {
             {BELIEFS.map((belief) => (
               <div
                 key={belief.title}
-                className="rounded-2xl border border-slate-200 bg-white p-7"
+                className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-7"
               >
-                <h2 className="font-bold text-slate-900 text-lg tracking-tight mb-3">
+                <h2 className="font-bold text-slate-900 dark:text-white text-lg tracking-tight mb-3">
                   {belief.title}
                 </h2>
-                <p className="text-sm text-slate-500 leading-relaxed">
+                <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
                   {belief.body}
                 </p>
               </div>
@@ -66,15 +66,15 @@ export default function AboutPage() {
       {/* Story — PLACEHOLDER. Real bio facts go here; do not fabricate. */}
       <section id="gw-story" className="py-16 scroll-mt-20">
         <div className="max-w-3xl mx-auto px-6">
-          <div className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-8">
-            <span className="inline-block text-orange-600 font-semibold text-xs uppercase tracking-widest mb-3">
+          <div className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 dark:bg-slate-900 p-8">
+            <span className="inline-block text-orange-600 dark:text-orange-400 font-semibold text-xs uppercase tracking-widest mb-3">
               Your story goes here
             </span>
-            <h2 className="text-2xl tracking-tight text-slate-900 mb-3">
+            <h2 className="text-2xl tracking-tight text-slate-900 dark:text-white mb-3">
               <span className="font-light">The people </span>
               <span className="font-bold">behind the club</span>
             </h2>
-            <p className="text-slate-500 text-sm leading-relaxed mb-3">
+            <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-3">
               This block is a placeholder. Add the real story: who you are, how
               long you&apos;ve worked in the GoHighLevel ecosystem, how many sites
               you&apos;ve shipped, and why you started the club. For a service that
@@ -92,11 +92,11 @@ export default function AboutPage() {
       {/* CTA */}
       <section id="gw-about-cta" className="pb-24">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-2xl tracking-tight text-slate-900 mb-4">
+          <h2 className="text-2xl tracking-tight text-slate-900 dark:text-white mb-4">
             <span className="font-light">Ready when </span>
             <span className="font-bold">you are</span>
           </h2>
-          <p className="text-slate-500 mb-7">
+          <p className="text-slate-500 dark:text-slate-400 mb-7">
             Pick a template and we&apos;ll have your site live in {buildRange()}.
           </p>
           <Link

@@ -144,17 +144,17 @@ const categoryColors: Record<string, string> = {
 
 export default function KeySections() {
   return (
-    <section id="key-sections" className="bg-slate-50 py-24 border-t border-slate-100">
+    <section id="key-sections" className="bg-slate-50 dark:bg-slate-900 py-24 border-t border-slate-100 dark:border-slate-800">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <span className="inline-block text-orange-500 font-semibold text-sm uppercase tracking-widest mb-4">
             Home Page Architecture
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight mb-5">
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white leading-tight mb-5">
             18 Sections. Zero Guesswork.
           </h2>
-          <p className="text-lg text-slate-500 leading-relaxed">
+          <p className="text-lg text-slate-500 dark:text-slate-400 leading-relaxed">
             Every section of the home page follows a deliberate persuasion sequence -
             from first impression to conversion. Here&apos;s exactly what your visitors walk through.
           </p>
@@ -165,7 +165,7 @@ export default function KeySections() {
           {sections.map((section) => (
             <div
               key={section.number}
-              className="bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-md hover:border-slate-300 transition-all flex gap-4"
+              className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 hover:shadow-md hover:border-slate-300 transition-all flex gap-4"
             >
               {/* Number + color indicator */}
               <div className="flex flex-col items-center gap-2 shrink-0">
@@ -183,7 +183,7 @@ export default function KeySections() {
                     {section.category}
                   </span>
                 </div>
-                <div className="font-bold text-slate-800 text-sm mb-1.5">{section.name}</div>
+                <div className="font-bold text-slate-800 dark:text-slate-100 text-sm mb-1.5">{section.name}</div>
                 <p className="text-slate-400 text-xs leading-relaxed">{section.desc}</p>
               </div>
             </div>
@@ -191,7 +191,7 @@ export default function KeySections() {
         </div>
 
         <div className="mt-12 text-center">
-          <p className="text-slate-500 text-sm mb-4">
+          <p className="text-slate-500 dark:text-slate-400 text-sm mb-4">
             Plus 10 additional pages with their own section architecture.
           </p>
           <a

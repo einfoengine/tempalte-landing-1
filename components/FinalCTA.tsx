@@ -13,22 +13,22 @@ const TRUST = [
 
 export default function FinalCTA() {
   return (
-    <section id="gw-get-started" className="bg-slate-50 py-24 border-t border-slate-100 scroll-mt-20">
+    <section id="gw-get-started" className="bg-slate-50 dark:bg-slate-900 py-24 border-t border-slate-100 dark:border-slate-800 scroll-mt-20">
       <div className="max-w-4xl mx-auto px-6 text-center">
-        <div className="inline-flex items-center gap-2 bg-orange-50 text-orange-600 text-sm font-semibold px-4 py-1.5 rounded-full border border-orange-100 mb-8">
+        <div className="inline-flex items-center gap-2 bg-orange-50 dark:bg-orange-500/15 text-orange-600 dark:text-orange-400 text-sm font-semibold px-4 py-1.5 rounded-full border border-orange-100 dark:border-orange-500/30 mb-8">
           <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
           We take {OFFER.slotsPerMonth} builds a month
         </div>
 
-        <h2 className="text-4xl md:text-5xl tracking-tight text-slate-900 leading-tight mb-6">
-          <span className="font-light text-slate-500">You built the platform.</span>
+        <h2 className="text-4xl md:text-5xl tracking-tight text-slate-900 dark:text-white leading-tight mb-6">
+          <span className="font-light text-slate-500 dark:text-slate-400">You built the platform.</span>
           <br />
           <span className="font-bold">
             Now let it <span className="gw-kw">look like one</span>.
           </span>
         </h2>
 
-        <p className="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed mb-4">
+        <p className="text-xl text-slate-500 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed mb-4">
           Pick the design today and your new site is live this time next week — on
           your domain, in your brand, with your GoHighLevel already connected.
         </p>
@@ -45,7 +45,7 @@ export default function FinalCTA() {
             See templates
             <span className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-lg leading-none transition-transform group-hover:translate-x-0.5">→</span>
           </Link>
-          <Link href="/pricing" className="text-slate-700 font-semibold px-8 py-4 rounded-full border border-slate-200 hover:border-slate-300 hover:bg-white transition-colors w-full sm:w-auto text-center shrink-0">
+          <Link href="/pricing" className="text-slate-700 dark:text-slate-200 font-semibold px-8 py-4 rounded-full border border-slate-200 dark:border-slate-700 hover:border-slate-300 hover:bg-white transition-colors w-full sm:w-auto text-center shrink-0">
             See pricing
           </Link>
         </div>

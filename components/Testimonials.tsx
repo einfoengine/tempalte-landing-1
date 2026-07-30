@@ -30,14 +30,14 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="bg-white py-24 border-t border-slate-100">
+    <section id="testimonials" className="bg-white dark:bg-slate-900 py-24 border-t border-slate-100 dark:border-slate-800">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-14">
           <span className="inline-block text-orange-500 font-semibold text-sm uppercase tracking-widest mb-4">
             Early Results
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight mb-5">
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white leading-tight mb-5">
             What Happens When Your
             <br />Website Finally Works
           </h2>
@@ -51,7 +51,7 @@ export default function Testimonials() {
           {testimonials.map((t) => (
             <div
               key={t.name}
-              className="flex flex-col bg-slate-50 rounded-2xl border border-slate-200 p-7 hover:shadow-lg hover:shadow-slate-100 hover:border-slate-300 transition-all"
+              className="flex flex-col bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 p-7 hover:shadow-lg hover:shadow-slate-100 hover:border-slate-300 transition-all"
             >
               {/* Stars */}
               <div className="flex gap-1 mb-4">
@@ -63,13 +63,13 @@ export default function Testimonials() {
               </div>
 
               {/* Quote */}
-              <p className="text-slate-700 text-sm leading-relaxed flex-1 mb-6">
+              <p className="text-slate-700 dark:text-slate-200 text-sm leading-relaxed flex-1 mb-6">
                 &ldquo;{t.quote}&rdquo;
               </p>
 
               {/* Metric */}
-              <div className="bg-orange-50 border border-orange-100 rounded-xl px-4 py-2.5 mb-5">
-                <span className="text-orange-600 font-bold text-xs">{t.metric}</span>
+              <div className="bg-orange-50 dark:bg-orange-500/15 border border-orange-100 dark:border-orange-500/30 rounded-xl px-4 py-2.5 mb-5">
+                <span className="text-orange-600 dark:text-orange-400 font-bold text-xs">{t.metric}</span>
               </div>
 
               {/* Author */}
@@ -80,7 +80,7 @@ export default function Testimonials() {
                   {t.avatar}
                 </div>
                 <div>
-                  <div className="font-bold text-slate-800 text-sm">{t.name}</div>
+                  <div className="font-bold text-slate-800 dark:text-slate-100 text-sm">{t.name}</div>
                   <div className="text-slate-400 text-xs">{t.role}</div>
                 </div>
               </div>

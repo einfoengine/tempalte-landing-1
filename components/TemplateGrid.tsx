@@ -50,13 +50,13 @@ export default function TemplateGrid({ showHeader = true }: { showHeader?: boole
         {showHeader && (
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
             <div>
-              <h2 className="text-3xl md:text-4xl tracking-tight text-slate-900 mb-2">
+              <h2 className="text-3xl md:text-4xl tracking-tight text-slate-900 dark:text-white mb-2">
                 <span className="font-light">One website, </span>
                 <span className="font-bold">
                   {TEMPLATES.length} <span className="gw-kw">ways</span> to present it.
                 </span>
               </h2>
-              <p className="text-slate-500">
+              <p className="text-slate-500 dark:text-slate-400">
                 Every template is a complete SaaS website. Pick the look that fits
                 your brand — we build it for you.
               </p>
@@ -94,22 +94,22 @@ export default function TemplateGrid({ showHeader = true }: { showHeader?: boole
         </div>
 
         {visible.length > 0 ? (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="gw-focus-grid grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {visible.map((t) => (
               <TemplateCard key={t.slug} template={t} />
             ))}
           </div>
         ) : (
-          <div className="rounded-2xl border border-dashed border-slate-200 py-16 text-center">
-            <p className="text-slate-500 font-medium mb-1">No template matches that combination.</p>
+          <div className="rounded-2xl border border-dashed border-slate-200 dark:border-slate-700 py-16 text-center">
+            <p className="text-slate-500 dark:text-slate-400 font-medium mb-1">No template matches that combination.</p>
             <p className="text-sm text-slate-400">Clear a filter — every template includes the same pages.</p>
           </div>
         )}
 
         {/* Apples-to-apples reassurance strip */}
         <div className="mt-8 gw-swipe max-w-none">
-          <p className="text-sm text-slate-600 leading-relaxed">
-            <strong className="font-semibold text-slate-800">Every preview uses the same demo content.</strong>{" "}
+          <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            <strong className="font-semibold text-slate-800 dark:text-slate-100">Every preview uses the same demo content.</strong>{" "}
             So you&apos;re comparing design, not copywriting. When you pick one, we
             build it in your brand with your content.
           </p>

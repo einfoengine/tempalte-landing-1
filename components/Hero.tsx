@@ -20,19 +20,19 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-12 items-center">
           {/* Left — copy */}
           <div className="text-center lg:text-left">
-            <span className="inline-flex items-center gap-2 bg-orange-50 text-orange-600 text-sm font-semibold px-4 py-1.5 rounded-full border border-orange-100 mb-7">
+            <span className="inline-flex items-center gap-2 bg-orange-50 dark:bg-orange-500/15 text-orange-600 dark:text-orange-400 text-sm font-semibold px-4 py-1.5 rounded-full border border-orange-100 dark:border-orange-500/30 mb-7">
               <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
               New this month: {drop.name} · Built for HighLevel agencies
             </span>
 
-            <h1 className="text-4xl sm:text-5xl xl:text-6xl text-slate-900 leading-[1.05] tracking-tight mb-6">
-              <span className="block font-light text-slate-500">Your SaaS is ready.</span>
+            <h1 className="text-4xl sm:text-5xl xl:text-6xl text-slate-900 dark:text-white leading-[1.05] tracking-tight mb-6">
+              <span className="block font-light text-slate-500 dark:text-slate-400">Your SaaS is ready.</span>
               <span className="block font-bold">
                 Your website <span className="gw-kw">says otherwise.</span>
               </span>
             </h1>
 
-            <p className="text-lg text-slate-500 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-9">
+            <p className="text-lg text-slate-500 dark:text-slate-400 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-9">
               Website designs built for HighLevel agencies selling their own SaaS.
               Pick the one you like — we build it in your brand, connect your
               GoHighLevel, and launch it on your domain in {buildRange()}.
@@ -48,7 +48,7 @@ export default function Hero() {
               </Link>
               <Link
                 href={`/templates/${drop.slug}`}
-                className="text-slate-700 font-semibold px-8 py-4 rounded-full border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-colors w-full sm:w-auto text-center shrink-0"
+                className="text-slate-700 dark:text-slate-200 font-semibold px-8 py-4 rounded-full border border-slate-200 dark:border-slate-700 hover:border-slate-300 hover:bg-slate-50 transition-colors w-full sm:w-auto text-center shrink-0"
               >
                 Preview {drop.name}
               </Link>
@@ -66,7 +66,7 @@ export default function Hero() {
                 <div key={stat.label}>
                   <dt className="sr-only">{stat.label}</dt>
                   <dd>
-                    <span className="block font-display font-bold text-3xl text-slate-900 tracking-tight whitespace-nowrap">{stat.value}</span>
+                    <span className="block font-display font-bold text-3xl text-slate-900 dark:text-white tracking-tight whitespace-nowrap">{stat.value}</span>
                     <span className="block text-xs text-slate-400 leading-snug mt-1 max-w-36">{stat.label}</span>
                   </dd>
                 </div>
@@ -76,19 +76,19 @@ export default function Hero() {
 
           {/* Right — the new drop in a browser mockup */}
           <div className="relative">
-            <div className="absolute -inset-6 bg-linear-to-br from-orange-50 via-slate-50 to-white rounded-3xl -z-10" />
-            <div className="relative rounded-2xl border border-slate-200 shadow-2xl overflow-hidden bg-white">
-              <div className="bg-slate-100 px-4 py-3 flex items-center gap-3 border-b border-slate-200">
+            <div className="absolute -inset-6 bg-linear-to-br from-orange-50 via-slate-50 to-white dark:from-orange-500/10 dark:via-slate-900 dark:to-slate-900 rounded-3xl -z-10" />
+            <div className="relative rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xl overflow-hidden bg-white dark:bg-slate-900">
+              <div className="bg-slate-100 dark:bg-slate-800 px-4 py-3 flex items-center gap-3 border-b border-slate-200 dark:border-slate-700">
                 <div className="flex gap-1.5 shrink-0">
                   <div className="w-3 h-3 rounded-full bg-red-400" />
                   <div className="w-3 h-3 rounded-full bg-yellow-400" />
                   <div className="w-3 h-3 rounded-full bg-green-400" />
                 </div>
-                <div className="flex-1 bg-white rounded-md px-3 py-1.5 text-xs text-slate-400 font-mono border border-slate-200 truncate">
+                <div className="flex-1 bg-white dark:bg-slate-900 rounded-md px-3 py-1.5 text-xs text-slate-400 font-mono border border-slate-200 dark:border-slate-700 truncate">
                   {drop.name.toLowerCase()}.yoursaas.com
                 </div>
               </div>
-              <div className="relative aspect-16/10 bg-slate-50">
+              <div className="relative aspect-16/10 bg-slate-50 dark:bg-slate-900">
                 {drop.cover ? (
                   <Image src={drop.cover} alt={`${drop.name} template preview`} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover object-top" loading="eager" fetchPriority="high" />
                 ) : (
@@ -96,12 +96,12 @@ export default function Hero() {
                 )}
               </div>
             </div>
-            <div className="absolute -left-4 sm:-left-8 bottom-8 bg-white rounded-xl shadow-xl border border-slate-100 px-4 py-3 hidden sm:block">
+            <div className="absolute -left-4 sm:-left-8 bottom-8 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-100 dark:border-slate-800 px-4 py-3 hidden sm:block">
               <div className="flex items-center gap-2.5">
                 <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse shrink-0" />
                 <div>
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-orange-600">New this month</div>
-                  <div className="text-xs font-semibold text-slate-800">{drop.name} · {drop.personality}</div>
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-orange-600 dark:text-orange-400">New this month</div>
+                  <div className="text-xs font-semibold text-slate-800 dark:text-slate-100">{drop.name} · {drop.personality}</div>
                 </div>
               </div>
             </div>

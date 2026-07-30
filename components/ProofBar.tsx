@@ -27,8 +27,9 @@ const WHAT_YOU_GET = [
 
 export default function ProofBar() {
   return (
-    <section id="gw-proof" className="bg-slate-900 py-20 border-y border-slate-800">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="gw-proof" className="relative overflow-hidden bg-slate-900 py-20 border-y border-slate-800">
+      <div aria-hidden="true" className="gw-aurora" />
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
         <div className="max-w-2xl mx-auto text-center mb-12">
           <span className="inline-block text-orange-400 font-semibold text-xs uppercase tracking-widest mb-4">
             Cost vs benefit
@@ -52,7 +53,7 @@ export default function ProofBar() {
                 <li key={item.head} className="flex items-start gap-3">
                   <span
                     aria-hidden="true"
-                    className="mt-0.5 w-5 h-5 rounded-full bg-slate-800 border border-slate-700 text-slate-500 text-[10px] flex items-center justify-center shrink-0"
+                    className="mt-0.5 w-5 h-5 rounded-full bg-slate-800 border border-slate-700 text-slate-400 text-[10px] flex items-center justify-center shrink-0"
                   >
                     ✕
                   </span>
@@ -60,7 +61,7 @@ export default function ProofBar() {
                     <span className="block text-slate-300 text-sm font-semibold">
                       {item.head}
                     </span>
-                    <span className="block text-slate-500 text-xs mt-0.5">
+                    <span className="block text-slate-400 text-xs mt-0.5">
                       {item.body}
                     </span>
                   </span>
@@ -72,7 +73,7 @@ export default function ProofBar() {
           {/* Pivot */}
           <div className="flex md:flex-col items-center justify-center gap-3 md:px-2">
             <span className="h-px md:h-full w-full md:w-px flex-1 bg-slate-800" />
-            <span className="text-slate-500 font-display font-bold text-sm uppercase tracking-widest shrink-0">
+            <span className="text-slate-400 font-display font-bold text-sm uppercase tracking-widest shrink-0">
               vs
             </span>
             <span className="h-px md:h-full w-full md:w-px flex-1 bg-slate-800" />

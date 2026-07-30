@@ -122,10 +122,10 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-slate-800 py-8 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-slate-500 text-xs">
+          <p className="text-slate-400 text-xs">
             © {new Date().getFullYear()} ghlsaastheme. All rights reserved.
           </p>
-          <p className="text-slate-500 text-xs">
+          <p className="text-slate-400 text-xs">
             Independent product for the HighLevel ecosystem. Not affiliated with
             or endorsed by HighLevel.
           </p>

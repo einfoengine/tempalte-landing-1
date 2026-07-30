@@ -40,19 +40,19 @@ export default function HowItWorksPage() {
 
       <section id="gw-what-we-need" className="py-20 scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-6">
-          <div className="rounded-2xl border border-slate-200 bg-white p-8">
-            <h2 className="text-xl font-bold text-slate-900 tracking-tight mb-1">What we need from you</h2>
+          <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-8">
+            <h2 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight mb-1">What we need from you</h2>
             <p className="text-sm text-slate-400 mb-5">A short intake, then we run with it.</p>
             <ul className="space-y-3">
               {FROM_YOU.map((item) => (
-                <li key={item} className="flex items-start gap-2.5 text-sm text-slate-600">
-                  <span className="mt-0.5 w-4 h-4 rounded-full bg-orange-50 text-orange-600 text-[10px] flex items-center justify-center shrink-0">✓</span>
+                <li key={item} className="flex items-start gap-2.5 text-sm text-slate-600 dark:text-slate-300">
+                  <span className="mt-0.5 w-4 h-4 rounded-full bg-orange-50 dark:bg-orange-500/15 text-orange-600 dark:text-orange-400 text-[10px] flex items-center justify-center shrink-0">✓</span>
                   {item}
                 </li>
               ))}
             </ul>
           </div>
-          <div className="rounded-2xl border border-slate-200 bg-slate-900 p-8">
+          <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-900 p-8">
             <h2 className="text-xl font-bold text-white tracking-tight mb-1">What you never do</h2>
             <p className="text-sm text-slate-400 mb-5">The whole point of paying us.</p>
             <ul className="space-y-3">
@@ -69,17 +69,17 @@ export default function HowItWorksPage() {
 
       <section id="gw-hiw-cta" className="pb-24">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-2xl md:text-3xl tracking-tight text-slate-900 mb-4">
+          <h2 className="text-2xl md:text-3xl tracking-tight text-slate-900 dark:text-white mb-4">
             <span className="font-light">Live in {buildRange()} for </span>
             <span className="font-bold">{price(OFFER.price)}</span>
           </h2>
-          <p className="text-slate-500 mb-7">We build your site in your brand, wire your CRM, and support it free for {OFFER.supportMonths} months.</p>
+          <p className="text-slate-500 dark:text-slate-400 mb-7">We build your site in your brand, wire your CRM, and support it free for {OFFER.supportMonths} months.</p>
           <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4">
             <Link href="/templates" className="gw-cta-glow inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-bold pl-8 pr-3 py-3 rounded-full transition-colors w-full sm:w-auto justify-center shrink-0">
               See templates
               <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-lg leading-none">→</span>
             </Link>
-            <Link href="/pricing" className="text-slate-700 font-semibold px-8 py-4 rounded-full border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-colors w-full sm:w-auto text-center shrink-0">
+            <Link href="/pricing" className="text-slate-700 dark:text-slate-200 font-semibold px-8 py-4 rounded-full border border-slate-200 dark:border-slate-700 hover:border-slate-300 hover:bg-slate-50 transition-colors w-full sm:w-auto text-center shrink-0">
               See pricing
             </Link>
           </div>

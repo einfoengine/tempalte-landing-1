@@ -40,7 +40,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${spaceGrotesk.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        {/* Runs before first paint so a dark-mode visitor never sees a white
+            flash. Must stay in sync with ThemeToggle (same key, same class).
+            Wrapped in try/catch because localStorage throws in some privacy
+            modes — a failure here should fall back to light, not blank the page. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var m=localStorage.getItem('gw-theme')||'system';var d=m==='dark'||(m==='system'&&matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.classList.toggle('dark',d)}catch(e){}`,
+          }}
+        />
+      </head>
       <body className="antialiased font-sans">{children}</body>
     </html>
   );

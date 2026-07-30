@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BrandCompare from "@/components/BrandCompare";
 import { OFFER, buildRange, price } from "@/lib/offer";
 import { TEMPLATE_PAGES } from "@/lib/templates";
 
@@ -22,18 +23,19 @@ import { TEMPLATE_PAGES } from "@/lib/templates";
  * selected — as if pages were options to pick, or one page differed from the
  * rest. All twelve are included in every build, so nothing should stand out.
  *
- * auto-rows-fr + h-full: the tile is row-span-2 on large screens, so the map
- * stretches to fill that height instead of leaving a dead gap above it. */
+ * Tiles are their NATURAL height. An earlier version stretched them to fill a
+ * row-span-2 column, which left each one mostly empty space — the bento no
+ * longer forces that column to be double height, so no stretching is needed. */
 function PageMap() {
   return (
     <ul
       aria-hidden="true"
-      className="grid grid-cols-2 sm:grid-cols-3 gap-1.5 lg:auto-rows-fr lg:h-full"
+      className="grid grid-cols-2 sm:grid-cols-3 gap-1.5"
     >
       {TEMPLATE_PAGES.map((page) => (
         <li
           key={page.name}
-          className="rounded-lg border border-slate-200 bg-white px-2.5 py-2 flex items-center gap-1.5"
+          className="min-w-0 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-2.5 py-2 flex items-center gap-1.5"
         >
           <svg
             className="w-3 h-3 text-orange-500 shrink-0"
@@ -43,43 +45,12 @@ function PageMap() {
           >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
           </svg>
-          <span className="text-[11px] font-semibold text-slate-700 truncate">
+          <span className="min-w-0 text-[11px] font-semibold text-slate-700 dark:text-slate-200 truncate">
             {page.name}
           </span>
         </li>
       ))}
     </ul>
-  );
-}
-
-/** Generic template → your brand, shown rather than described. */
-function BrandSwap() {
-  return (
-    <div aria-hidden="true" className="flex items-center gap-3">
-      {/* before */}
-      <div className="flex-1 rounded-lg border border-slate-200 bg-white p-3">
-        <div className="flex items-center gap-1.5 mb-2">
-          <div className="w-3.5 h-3.5 rounded bg-slate-300" />
-          <div className="h-1.5 w-10 rounded-full bg-slate-200" />
-        </div>
-        <div className="h-1.5 w-full rounded-full bg-slate-200 mb-1" />
-        <div className="h-1.5 w-2/3 rounded-full bg-slate-200 mb-2.5" />
-        <div className="h-4 w-14 rounded bg-slate-200" />
-      </div>
-
-      <span className="text-slate-400 text-lg shrink-0">→</span>
-
-      {/* after */}
-      <div className="flex-1 rounded-lg border-2 border-orange-500 bg-white p-3 shadow-md shadow-orange-500/10">
-        <div className="flex items-center gap-1.5 mb-2">
-          <div className="w-3.5 h-3.5 rounded bg-orange-500" />
-          <div className="h-1.5 w-10 rounded-full bg-orange-200" />
-        </div>
-        <div className="h-1.5 w-full rounded-full bg-slate-200 mb-1" />
-        <div className="h-1.5 w-2/3 rounded-full bg-slate-200 mb-2.5" />
-        <div className="h-4 w-14 rounded bg-orange-500" />
-      </div>
-    </div>
   );
 }
 
@@ -110,21 +81,21 @@ export default function TemplateFeatures() {
   return (
     <section
       id="gw-whats-in-the-box"
-      className="gw-hero-dot-bg py-24 border-t border-slate-100 scroll-mt-20"
+      className="gw-hero-dot-bg py-24 border-t border-slate-100 dark:border-slate-800 scroll-mt-20"
     >
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center mb-14">
-          <span className="inline-block text-orange-600 font-semibold text-sm uppercase tracking-widest mb-4">
+          <span className="inline-block text-orange-600 dark:text-orange-400 font-semibold text-sm uppercase tracking-widest mb-4">
             What you get
           </span>
-          <h2 className="text-4xl md:text-5xl tracking-tight text-slate-900 leading-tight mb-5">
-            <span className="font-light text-slate-500">Everything your prospects need to say yes —</span>
+          <h2 className="text-4xl md:text-5xl tracking-tight text-slate-900 dark:text-white leading-tight mb-5">
+            <span className="font-light text-slate-500 dark:text-slate-400">Everything your prospects need to say yes —</span>
             <br />
             <span className="font-bold">
               built and live in a <span className="gw-kw">week</span>.
             </span>
           </h2>
-          <p className="text-lg text-slate-500 leading-relaxed">
+          <p className="text-lg text-slate-500 dark:text-slate-400 leading-relaxed">
             You choose how it looks. We do the building, the brand setup and the
             CRM wiring — then stay on hand for {OFFER.supportMonths} months.
           </p>
@@ -133,13 +104,13 @@ export default function TemplateFeatures() {
         {/* Bento: the biggest claim gets the biggest tile */}
         <div className="grid lg:grid-cols-3 gap-5">
           {/* Complete site — spans two columns and both rows */}
-          <div className="lg:col-span-2 lg:row-span-2 rounded-2xl border border-slate-200 bg-white p-7 md:p-8 shadow-sm flex flex-col">
+          <div className="min-w-0 lg:col-span-2 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-7 md:p-8 shadow-sm flex flex-col">
             <div className="flex items-start justify-between gap-4 mb-4">
-              <div>
-                <h3 className="font-bold text-slate-900 text-xl tracking-tight mb-2">
+              <div className="min-w-0">
+                <h3 className="font-bold text-slate-900 dark:text-white text-xl tracking-tight mb-2">
                   A complete site, not a landing page
                 </h3>
-                <p className="text-slate-500 text-sm leading-relaxed max-w-lg">
+                <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed max-w-lg">
                   Home, pricing, two pages for the niches you sell to, results,
                   your founder story, contact — everything a prospect needs to say
                   yes without booking a call first.
@@ -159,7 +130,7 @@ export default function TemplateFeatures() {
               </div>
               <Link
                 href="/templates"
-                className="text-sm font-semibold text-orange-600 hover:underline mt-5 self-start"
+                className="text-sm font-semibold text-orange-600 dark:text-orange-400 hover:underline mt-5 self-start"
               >
                 See templates →
               </Link>
@@ -167,48 +138,52 @@ export default function TemplateFeatures() {
           </div>
 
           {/* Your brand */}
-          <div className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm flex flex-col">
-            <h3 className="font-bold text-slate-900 text-lg tracking-tight mb-2">
+          <div className="min-w-0 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-7 shadow-sm flex flex-col">
+            <h3 className="font-bold text-slate-900 dark:text-white text-lg tracking-tight mb-2">
               Your brand, not ours
             </h3>
-            <p className="text-slate-500 text-sm leading-relaxed mb-5">
+            <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-5">
               Your logo, colours, words and pricing throughout — plus your
               GoHighLevel forms, chat and calendars connected.
             </p>
             <div className="mt-auto">
-              <BrandSwap />
+              <BrandCompare />
               <Link
                 href="/how-it-works"
-                className="inline-block text-sm font-semibold text-orange-600 hover:underline mt-5"
+                className="inline-block text-sm font-semibold text-orange-600 dark:text-orange-400 hover:underline mt-5"
               >
                 How it works →
               </Link>
             </div>
           </div>
 
-          {/* Support */}
-          <div className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm flex flex-col">
-            <div className="flex items-baseline gap-2 mb-2">
-              <h3 className="font-bold text-slate-900 text-lg tracking-tight">
-                {OFFER.supportMonths} months of support
-              </h3>
-              <span className="text-[10px] font-bold uppercase tracking-wider bg-orange-50 text-orange-600 border border-orange-100 px-2 py-0.5 rounded-full">
-                Free
-              </span>
+          {/* Support — full-width bar under the two tiles above. Horizontal so
+              the row reads as a footer to the bento rather than a third column
+              stranded beside empty space. */}
+          <div className="min-w-0 lg:col-span-3 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-7 shadow-sm flex flex-col md:flex-row md:items-center gap-6 md:gap-10">
+            <div className="md:max-w-md">
+              <div className="flex items-baseline gap-2 mb-2">
+                <h3 className="font-bold text-slate-900 dark:text-white text-lg tracking-tight">
+                  {OFFER.supportMonths} months of support
+                </h3>
+                <span className="text-[10px] font-bold uppercase tracking-wider bg-orange-50 dark:bg-orange-500/15 text-orange-600 dark:text-orange-400 border border-orange-100 dark:border-orange-500/30 px-2 py-0.5 rounded-full">
+                  Free
+                </span>
+              </div>
+              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                Something breaks, or you want the pricing page changed? Email us.
+                No ticket queue, no hourly rate, no upsell.
+              </p>
             </div>
-            <p className="text-slate-500 text-sm leading-relaxed mb-5">
-              Something breaks, or you want the pricing page changed? Email us. No
-              ticket queue, no hourly rate, no upsell.
-            </p>
-            <div className="mt-auto">
+            <div className="flex-1 min-w-0">
               <SupportTimeline />
-              <Link
-                href="/pricing"
-                className="inline-block text-sm font-semibold text-orange-600 hover:underline mt-4"
-              >
-                See pricing →
-              </Link>
             </div>
+            <Link
+              href="/pricing"
+              className="shrink-0 text-sm font-semibold text-orange-600 dark:text-orange-400 hover:underline"
+            >
+              See pricing →
+            </Link>
           </div>
         </div>
 
