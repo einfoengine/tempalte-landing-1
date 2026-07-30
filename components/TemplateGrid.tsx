@@ -43,7 +43,7 @@ export default function TemplateGrid({ showHeader = true }: { showHeader?: boole
 
   return (
     <section
-      id="templates"
+      id="gw-templates"
       className={showHeader ? "py-20 border-t border-slate-100" : "pb-20 scroll-mt-20"}
     >
       <div className="max-w-6xl mx-auto px-6">
@@ -51,14 +51,14 @@ export default function TemplateGrid({ showHeader = true }: { showHeader?: boole
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
             <div>
               <h2 className="text-3xl md:text-4xl tracking-tight text-slate-900 mb-2">
-                <span className="font-light">Same selling system. </span>
+                <span className="font-light">One website, </span>
                 <span className="font-bold">
-                  {TEMPLATES.length} <span className="kw">ways</span> to present it.
+                  {TEMPLATES.length} <span className="gw-kw">ways</span> to present it.
                 </span>
               </h2>
               <p className="text-slate-500">
-                Every template implements the full content plan. Pick the
-                presentation that fits your brand.
+                Every template is a complete SaaS website. Pick the look that fits
+                your brand — we build it for you.
               </p>
             </div>
             <span className="text-sm font-medium text-slate-400 shrink-0">
@@ -102,16 +102,16 @@ export default function TemplateGrid({ showHeader = true }: { showHeader?: boole
         ) : (
           <div className="rounded-2xl border border-dashed border-slate-200 py-16 text-center">
             <p className="text-slate-500 font-medium mb-1">No template matches that combination.</p>
-            <p className="text-sm text-slate-400">Clear a filter — every template ships the same content system.</p>
+            <p className="text-sm text-slate-400">Clear a filter — every template includes the same pages.</p>
           </div>
         )}
 
         {/* Apples-to-apples reassurance strip */}
-        <div className="mt-8 swipe max-w-none">
+        <div className="mt-8 gw-swipe max-w-none">
           <p className="text-sm text-slate-600 leading-relaxed">
-            <strong className="font-semibold text-slate-800">Every preview runs the identical demo content.</strong>{" "}
-            If a template looks better to you, it&apos;s the design — not trick
-            copy. Your actual content gets installed during customization.
+            <strong className="font-semibold text-slate-800">Every preview uses the same demo content.</strong>{" "}
+            So you&apos;re comparing design, not copywriting. When you pick one, we
+            build it in your brand with your content.
           </p>
         </div>
       </div>

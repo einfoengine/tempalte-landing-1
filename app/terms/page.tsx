@@ -12,25 +12,25 @@ export default function TermsPage() {
     <LegalPage
       title="Terms of service"
       updated="Set on launch"
-      intro="Plain terms for buying and using a ghlsaastheme package. The short version: you own your site, one license covers one brand, and maintenance is a service you can leave any time."
+      intro="Plain terms for buying a website build from ghlsaastheme. The short version: you own your site, one purchase covers one brand, and support is included free for four months."
       sections={[
         {
           heading: "What you're buying",
           body: [
-            "Every package is a service: a template, customized by our team, launched on your domain, and maintained for the included term. It is not a downloadable file license.",
+            "You are buying a service: we build your website from the template you pick, in your brand, wired to your GoHighLevel and launched on your domain. It is not a downloadable file license.",
           ],
         },
         {
           heading: "License scope",
           body: [
-            "One package licenses one brand on one domain. Running multiple SaaS brands requires an additional license per brand — you're paying for customization, not the template again.",
+            "One purchase licenses one brand on one domain. Running multiple SaaS brands requires a separate build per brand — you're paying for the build work, not the template again.",
             "You may not resell, redistribute, or repackage the template or kit as a standalone product.",
           ],
         },
         {
           heading: "Ownership and export",
           body: [
-            "You own your customized site. You can request a full export at any time, with documentation. Maintenance is a service, not a condition of keeping your site.",
+            "You own your finished site. You can request a full export at any time, with documentation. Technical support is included free for four months and is never a condition of keeping your site.",
           ],
         },
         {

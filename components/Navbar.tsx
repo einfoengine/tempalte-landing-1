@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
    Method are Sprint 2 — added here the moment they exist so nothing 404s. */
 const LINKS = [
   { href: "/templates", label: "Templates" },
-  { href: "/packages", label: "Packages" },
+  { href: "/pricing", label: "Pricing" },
   { href: "/how-it-works", label: "How it works" },
   { href: "/work", label: "Examples" },
 ];
@@ -61,14 +61,14 @@ export default function Navbar() {
             href="/templates"
             className="hidden sm:inline-flex bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white text-sm font-bold px-5 py-2.5 rounded-full transition-colors shadow-md shadow-orange-500/25"
           >
-            Browse templates
+            See templates
           </Link>
 
           <button
             type="button"
             onClick={() => setOpen((o) => !o)}
             aria-expanded={open}
-            aria-controls="mobile-menu"
+            aria-controls="gw-mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}
             className="md:hidden w-10 h-10 -mr-2 flex items-center justify-center text-slate-700"
           >
@@ -82,7 +82,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <nav id="mobile-menu" className="md:hidden border-t border-slate-100 bg-white px-6 py-4">
+        <nav id="gw-mobile-menu" className="md:hidden border-t border-slate-100 bg-white px-6 py-4">
           <div className="flex flex-col">
             {[...LINKS, ...MOBILE_EXTRA].map((link) => (
               <Link
@@ -98,7 +98,7 @@ export default function Navbar() {
               </Link>
             ))}
             <Link href="/templates" onClick={() => setOpen(false)} className="mt-4 bg-orange-500 text-white font-bold px-5 py-3 rounded-full text-center">
-              Browse templates
+              See templates
             </Link>
           </div>
         </nav>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import LegalPage from "@/components/LegalPage";
-import { price, OFFER } from "@/lib/offer";
+import { OFFER } from "@/lib/offer";
 
 export const metadata: Metadata = {
   title: "Refund Policy — ghlsaastheme",
@@ -29,9 +29,9 @@ export default function RefundPage() {
           ],
         },
         {
-          heading: "Maintenance",
+          heading: "Technical support",
           body: [
-            `Maintenance continues month-to-month at ${price(OFFER.continuationMonthly)}/mo after the included term. You can cancel maintenance at any time; you keep the site and receive a final backup plus self-maintenance docs.`,
+            `Every build includes ${OFFER.supportMonths} months of technical support, free. It isn't a subscription and there's nothing to cancel — after the period ends the site is still yours, and you can hire us for ad-hoc work whenever you need it.`,
           ],
         },
         {

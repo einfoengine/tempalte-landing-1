@@ -1,30 +1,35 @@
 import Link from "next/link";
-import { buildRange } from "@/lib/offer";
+import { OFFER, buildRange } from "@/lib/offer";
 
-/* P1 §1.7 — three steps, one owner action ("pick"). Everything after step 1 is
-   on our team, and the copy says so. */
+/* Three steps, one action from the buyer ("pick"). Everything after step 1 is on
+   our side, and the copy says so.
+
+   De-ambiguated: "same content, different presentation" read as "every site
+   looks the same" — the opposite of the point. "Variables sheet" and "proof"
+   were jargon. "Maintenance starts day one" was left over from a retired
+   pricing model and contradicted the 4-months-support offer. */
 const STEPS = [
   {
     number: "01",
-    title: "Pick your template",
-    body: "Live-preview them all — same content, different presentation. Not sure? Tell us your niche and we'll recommend one.",
+    title: "Pick the design you like",
+    body: "Every template includes the same pages, so you're only choosing the look — no feature is locked behind a different one. Not sure? Tell us the niche you sell to and we'll recommend one.",
   },
   {
     number: "02",
-    title: "We make it yours",
-    body: "Your brand through the variables sheet, your niches and proof into the content system, your GHL embeds wired. You never touch code.",
+    title: "Send your brand and details",
+    body: "Your logo, colours, offer and pricing. We rebuild every page around your brand, put your own words in place, and connect your GoHighLevel forms, chat and calendars.",
   },
   {
     number: "03",
-    title: `Live in ${buildRange()}`,
-    body: "Launched on your domain. Maintenance starts day one — this is where a file ends and a launch begins.",
+    title: `You're live in ${buildRange()}`,
+    body: `On your own domain, ready to send traffic to. Then ${OFFER.supportMonths} months of technical support — email us for a change and we handle it.`,
   },
 ];
 
 export default function HowItWorks({ showHeader = true }: { showHeader?: boolean }) {
   return (
     <section
-      id="how-it-works"
+      id="gw-how-it-works"
       className={showHeader ? "bg-slate-50 py-24 border-t border-slate-100" : "bg-slate-50 py-16 scroll-mt-20"}
     >
       <div className="max-w-6xl mx-auto px-6">
@@ -33,12 +38,12 @@ export default function HowItWorks({ showHeader = true }: { showHeader?: boolean
             <span className="inline-block text-orange-600 font-semibold text-sm uppercase tracking-widest mb-4">How it works</span>
             <h2 className="text-3xl md:text-4xl tracking-tight text-slate-900 leading-tight mb-4">
               <span className="font-light">You pick. </span>
-              <span className="font-bold">We <span className="kw">build</span>.</span>
+              <span className="font-bold">We <span className="gw-kw">build</span>.</span>
             </h2>
             <p className="text-lg text-slate-500 leading-relaxed">
-              This isn&apos;t a download. You choose a template, we build your site
-              around the content system, and we keep it running — so the only thing
-              you do is show up to a finished website.
+              There&apos;s nothing to download and nothing to configure. You choose
+              the design, send us your brand, and we hand back a finished website
+              on your domain — usually inside a week.
             </p>
           </div>
         )}
@@ -53,12 +58,12 @@ export default function HowItWorks({ showHeader = true }: { showHeader?: boolean
           ))}
         </ol>
 
-        <div className="flex flex-col sm:flex-row items-center gap-4">
+        <div className="flex flex-col sm:flex-row flex-wrap items-center gap-4">
           <Link
             href="/templates"
-            className="group inline-flex items-center justify-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-bold pl-8 pr-3 py-3 rounded-full transition-colors w-full sm:w-auto"
+            className="group inline-flex items-center justify-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-bold pl-8 pr-3 py-3 rounded-full transition-colors w-full sm:w-auto shrink-0"
           >
-            Pick your template
+            Pick a template
             <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-lg leading-none transition-transform group-hover:translate-x-0.5">→</span>
           </Link>
           <p className="text-sm text-slate-400">Live in {buildRange()} · You never touch code</p>

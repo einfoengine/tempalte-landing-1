@@ -25,10 +25,10 @@ export default function WorkPage() {
         titleLight="The kind of site"
         titleBold="you'll"
         keyword="launch"
-        subtitle="Every template below is a complete, production-ready HighLevel SaaS marketing site — the full content system, built. Pick one and we build your version: your brand, your copy, your domain."
+        subtitle="Every template below is a complete, production-ready HighLevel SaaS website. Pick one and we build your version: your brand, your content, your CRM, your domain."
       />
 
-      <section id="work-grid" className="pb-20 scroll-mt-20">
+      <section id="gw-work-grid" className="pb-20 scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="mb-10 rounded-xl border border-amber-200 bg-amber-50 px-5 py-4 flex items-start gap-3">
             <span className="text-lg leading-none mt-0.5" aria-hidden="true">💡</span>

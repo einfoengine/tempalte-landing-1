@@ -16,15 +16,17 @@ import { OFFER, price } from "@/lib/offer";
  * 50% wide and always centred; neighbours fall to 25% each for free. Infinite
  * loop via three rendered copies, folded back into the middle copy. */
 
-const ROTATE_MS = 4500;
+const ROTATE_MS = 3200;
 const SETTLE_MS = 180;
+/* Must stay comfortably under ROTATE_MS: the fold back into the middle copy has
+   to finish before the next auto-advance fires, or the two fight each other. */
 const FOLD_AFTER_MS = 700;
 const COPIES = 3;
 
 const ORDERED = sortedTemplates();
 
 const BADGE_LABEL: Record<string, string> = {
-  hot: "Most launched",
+  hot: "Flagship",
   new: "New drop",
   updated: "Updated",
 };
@@ -212,7 +214,7 @@ export default function HotThemes() {
 
   return (
     <section
-      id="hot-templates"
+      id="gw-hot-templates"
       className="bg-slate-950 py-16 border-b border-slate-800"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -223,10 +225,10 @@ export default function HotThemes() {
     >
       <div className="max-w-6xl mx-auto px-6 mb-8 flex flex-wrap items-end justify-between gap-4">
         <div>
-          <span className="inline-block text-orange-400 font-semibold text-sm uppercase tracking-widest mb-3">New + hot</span>
+          <span className="inline-block text-orange-400 font-semibold text-sm uppercase tracking-widest mb-3">The designs</span>
           <h2 className="text-3xl md:text-4xl tracking-tight text-white">
-            <span className="font-light text-slate-400">The templates founders </span>
-            <span className="font-bold">are <span className="kw">launching</span></span>
+            <span className="font-light text-slate-400">Start with the </span>
+            <span className="font-bold">flagship or the <span className="gw-kw">new one</span></span>
           </h2>
         </div>
         <p aria-live="polite" className="sr-only">Now showing {ORDERED[templateIndex].name}</p>
@@ -236,10 +238,10 @@ export default function HotThemes() {
       </div>
 
       <div
-        id="hot-templates-track"
+        id="gw-hot-templates-track"
         ref={trackRef}
         onScroll={handleScroll}
-        className="w-full h-130 md:h-150 flex gap-1 md:gap-1.5 overflow-x-auto no-scrollbar overscroll-x-contain"
+        className="w-full h-130 md:h-150 flex gap-1 md:gap-1.5 overflow-x-auto gw-no-scrollbar overscroll-x-contain"
       >
         {ITEMS.map((template, i) => (
           <div
@@ -257,24 +259,48 @@ export default function HotThemes() {
         ))}
       </div>
 
-      {/* Dashed switcher */}
+      {/* Arrows + dashed switcher. Arrows step `active` by ±1; the infinite-loop
+          fold handles crossing out of the middle copy, so they wrap forever in
+          both directions with no dead end at either end of the catalog. */}
       <div className="max-w-6xl mx-auto px-6 mt-8">
-        <div className="flex gap-2" role="group" aria-label="Switch template">
-          {ORDERED.map((t, i) => {
-            const isActive = i === templateIndex;
-            return (
-              <button
-                key={t.slug}
-                type="button"
-                onClick={() => setActive(MIDDLE + i)}
-                aria-label={`Show ${t.name}`}
-                aria-current={isActive}
-                className="group flex-1 py-2.5 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-400"
-              >
-                <span className={`block h-0.5 w-full rounded-full transition-colors duration-300 ${isActive ? "bg-orange-500" : "bg-slate-700 group-hover:bg-slate-500"}`} />
-              </button>
-            );
-          })}
+        <div className="flex items-center gap-4">
+          <button
+            type="button"
+            onClick={() => setActive((a) => a - 1)}
+            aria-label="Previous template"
+            className="shrink-0 w-10 h-10 rounded-full border border-slate-700 text-slate-300 hover:text-white hover:border-slate-500 hover:bg-slate-800 transition-colors flex items-center justify-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
+          >
+            <span aria-hidden="true" className="text-lg leading-none">←</span>
+          </button>
+
+          <div className="flex gap-2 flex-1" role="group" aria-label="Switch template">
+            {ORDERED.map((t, i) => {
+              const isActive = i === templateIndex;
+              return (
+                <button
+                  key={t.slug}
+                  type="button"
+                  onClick={() => setActive(MIDDLE + i)}
+                  aria-label={`Show ${t.name}`}
+                  aria-current={isActive}
+                  className="group flex-1 py-2.5 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-400"
+                >
+                  <span className={`block h-0.5 w-full rounded-full transition-colors duration-300 ${isActive ? "bg-orange-500" : "bg-slate-700 group-hover:bg-slate-500"}`} />
+                </button>
+              );
+            })}
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setActive((a) => a + 1)}
+            aria-label="Next template"
+            /* Identical treatment to the Previous button — a solid accent on one
+               and an outline on the other read as two different kinds of control. */
+            className="shrink-0 w-10 h-10 rounded-full border border-slate-700 text-slate-300 hover:text-white hover:border-slate-500 hover:bg-slate-800 transition-colors flex items-center justify-center focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
+          >
+            <span aria-hidden="true" className="text-lg leading-none">→</span>
+          </button>
         </div>
         <p className="text-center text-slate-600 text-xs mt-1">
           {ORDERED[templateIndex].name} · {templateIndex + 1} of {total}

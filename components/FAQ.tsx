@@ -4,40 +4,48 @@ import { useState } from "react";
 import { OFFER, price, buildRange } from "@/lib/offer";
 
 /* Answers written for AI extraction and skeptical operators alike: direct first
-   sentence, no preamble. Model is packages + ownership (you own/export it, no
-   lock-in) — NOT the old hosted membership. */
+   sentence, no preamble. Model is ONE template, one price, we build it in your
+   brand, 4 months free technical support — no tiers, no packages. */
 const faqs = [
   {
-    q: "Do I own the site?",
-    a: "Yes. One package licenses one brand on one domain. You can export the full site any time, with docs — maintenance is a service, not a hostage situation. No lock-in.",
-  },
-  {
-    q: "Does it work with my GoHighLevel funnels?",
-    a: "Yes. The site is your trust layer; your funnels stay in GHL. We wire your forms, chat widget and calendars directly into the pages, so leads flow into HighLevel exactly as they do now.",
+    q: "What exactly am I buying?",
+    a: `One template, built into your website. You pick the template you want, we build every page of it in your brand, wire it to your GoHighLevel, and launch it on your domain — ${price(OFFER.price)}, with ${OFFER.supportMonths} months of technical support included.`,
   },
   {
     q: "Is this a template I download?",
-    a: "No — that's the whole point. Every package is a launched website: we customize the template, wire your embeds, deploy it on your domain and maintain it after. The unit of sale is a live site, not a file.",
+    a: "No — that's the whole point. You never download or configure anything. We do the build and hand you a finished, live website. The template is what you're choosing, not what you're receiving.",
   },
   {
-    q: "Can I edit it myself?",
-    a: "Yes. One variables sheet controls colour, type and spacing, and every section has a unique ID — the docs walk you through it. Or send edit requests under maintenance and we handle them.",
+    q: "Do I own the site?",
+    a: "Yes. One purchase licenses one brand on one domain, and the finished site is yours. You can export it any time with docs. Nothing is held hostage.",
+  },
+  {
+    q: "Does it work with my GoHighLevel?",
+    a: "Yes. Your funnels stay in GHL — this is your marketing website. We wire your forms, chat widget and calendars straight into the pages, so leads flow into HighLevel exactly as they do now.",
   },
   {
     q: "How long until it's live?",
-    a: `Launch: 3–5 days from completed intake. Growth: ${buildRange()}. Partner: 7–14 depending on custom scope. The clock starts when your intake is complete.`,
+    a: `${buildRange()} from your completed intake. Send your brand assets and content and the clock starts; if you don't have copy ready, we'll draft it, which can add a few days.`,
   },
   {
-    q: "What if I want changes beyond the template?",
-    a: "Custom sections and module swaps are the Partner package, or a maintenance request after launch. Every template shares one kit, so custom work builds on solid ground rather than starting over.",
+    q: `What does the ${OFFER.supportMonths} months of support cover?`,
+    a: "Technical support: fixes, content edits, help with anything that breaks or confuses you, and guidance on running the site. It's included free with every build — not an upsell, not a separate plan.",
   },
   {
-    q: "What does maintenance cost after the included term?",
-    a: `Continue month-to-month at ${price(OFFER.continuationMonthly)}/mo, or self-maintain with the docs. Either way there's no lock-in and no penalty for leaving — the graceful exit includes a final backup.`,
+    q: "Can I edit it myself?",
+    a: "Yes. One variables sheet controls colour, type and spacing, and every section has a unique ID — the docs walk you through it. Or just send us the edit while your support period is running.",
+  },
+  {
+    q: "Can I change how a section looks?",
+    a: "Small changes and swaps during the build are part of the job — tell us during intake. Substantial custom sections beyond the template are quoted separately, so you always know the cost up front.",
+  },
+  {
+    q: "What happens after the support period?",
+    a: "Nothing breaks and nothing switches off — the site is yours. You can keep running it yourself with the docs, or hire us for ad-hoc work when you need it.",
   },
   {
     q: "Refunds?",
-    a: "Full refund any time before customization starts. After that we make it right instead — the 7-day launch guarantee and revision rounds are the mechanism.",
+    a: "Full refund any time before we start building. Once the build is underway we make it right instead — the 7-day launch guarantee and revision round are the mechanism.",
   },
   {
     q: "Hosting?",
@@ -68,14 +76,14 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
 export default function FAQ() {
   return (
-    <section id="faq" className="bg-white py-24 border-t border-slate-100 scroll-mt-20">
+    <section id="gw-faq" className="bg-white py-24 border-t border-slate-100 scroll-mt-20">
       <div className="max-w-3xl mx-auto px-6">
         <div className="text-center mb-14">
           <span className="inline-block text-orange-600 font-semibold text-sm uppercase tracking-widest mb-4">FAQ</span>
           <h2 className="text-4xl md:text-5xl tracking-tight text-slate-900 leading-tight mb-5">
             <span className="font-light">Common </span><span className="font-bold">questions</span>
           </h2>
-          <p className="text-slate-500 text-base">The ones that actually stall a template purchase, answered straight.</p>
+          <p className="text-slate-500 text-base">The ones that actually stall a decision, answered straight.</p>
         </div>
         <div className="bg-slate-50 rounded-2xl border border-slate-200 px-8 divide-y divide-slate-100">
           {faqs.map((faq) => (

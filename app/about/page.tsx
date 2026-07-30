@@ -43,7 +43,7 @@ export default function AboutPage() {
       />
 
       {/* Beliefs */}
-      <section id="beliefs" className="pb-8 scroll-mt-20">
+      <section id="gw-beliefs" className="pb-8 scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-6">
             {BELIEFS.map((belief) => (
@@ -64,7 +64,7 @@ export default function AboutPage() {
       </section>
 
       {/* Story — PLACEHOLDER. Real bio facts go here; do not fabricate. */}
-      <section id="story" className="py-16 scroll-mt-20">
+      <section id="gw-story" className="py-16 scroll-mt-20">
         <div className="max-w-3xl mx-auto px-6">
           <div className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-8">
             <span className="inline-block text-orange-600 font-semibold text-xs uppercase tracking-widest mb-3">
@@ -90,7 +90,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section id="about-cta" className="pb-24">
+      <section id="gw-about-cta" className="pb-24">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="text-2xl tracking-tight text-slate-900 mb-4">
             <span className="font-light">Ready when </span>
@@ -103,7 +103,7 @@ export default function AboutPage() {
             href="/templates"
             className="inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-bold pl-8 pr-3 py-3 rounded-full transition-colors"
           >
-            Browse the themes
+            See templates
             <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-lg leading-none">
               →
             </span>

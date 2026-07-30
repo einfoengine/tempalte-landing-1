@@ -21,7 +21,7 @@ export default function LegalPage({
   return (
     <PageShell>
       <PageHero titleLight="" titleBold={title} subtitle={intro} />
-      <section id="legal-body" className="pb-24 scroll-mt-20">
+      <section id="gw-legal-body" className="pb-24 scroll-mt-20">
         <div className="max-w-3xl mx-auto px-6">
           <div className="mb-8 rounded-xl border border-amber-200 bg-amber-50 px-5 py-4 text-sm text-amber-900 leading-relaxed">
             <strong className="font-semibold">Draft — review before launch.</strong>{" "}

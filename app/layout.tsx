@@ -25,11 +25,11 @@ export const metadata: Metadata = {
   ),
   title: "ghlsaastheme — Launch-Ready SaaS Websites for HighLevel Agencies",
   description:
-    "Conversion-ready website templates for HighLevel SaaS agencies — a proven content system inside, customized by our team, live in 5–7 days, maintained after launch. Not a file. A launch.",
+    "Conversion-ready website templates for HighLevel SaaS agencies. Pick one — we build your website from it in your brand, wire your GoHighLevel, and support it free for 4 months. Not a file. A finished website.",
   openGraph: {
     title: "ghlsaastheme — Launch-Ready SaaS Websites for HighLevel Agencies",
     description:
-      "Pick a template. We brand it, wire your GHL embeds, and launch it — then keep it maintained. Template + customization + maintenance, from $497 launched.",
+      "Pick a template. We build your website from it in your brand, wire your GHL embeds, and launch it — with 4 months of technical support free.",
     type: "website",
   },
 };

@@ -4,11 +4,11 @@ import PageHero from "@/components/PageHero";
 import TemplateGrid from "@/components/TemplateGrid";
 import HowItWorks from "@/components/HowItWorks";
 import { TEMPLATES } from "@/lib/templates";
-import { buildRange, fromPrice, price } from "@/lib/offer";
+import { OFFER, buildRange, price } from "@/lib/offer";
 
 export const metadata: Metadata = {
   title: "GoHighLevel SaaS Website Templates | ghlsaastheme",
-  description: `${TEMPLATES.length} conversion-ready website templates for HighLevel SaaS agencies — same content system, different presentation. From ${price(fromPrice())} launched, live in ${buildRange()}.`,
+  description: `${TEMPLATES.length} complete website templates for HighLevel SaaS agencies. Pick one — we build your site from it in your brand for ${price(OFFER.price)}, live in ${buildRange()}.`,
   alternates: { canonical: "/templates" },
 };
 
@@ -16,11 +16,11 @@ export default function TemplatesPage() {
   return (
     <PageShell>
       <PageHero
-        eyebrow={`${TEMPLATES.length} templates · one content system`}
-        titleLight="Same selling system."
+        eyebrow={`${TEMPLATES.length} complete website templates`}
+        titleLight="One website."
         titleBold={`${TEMPLATES.length} ways to present`}
         keyword="it."
-        subtitle="Every template implements the full content plan — 14 pages, funnels, academy shell. Pick the presentation that fits your brand; the thinking ships inside every one."
+        subtitle="Every template is a complete multi-page SaaS website. Pick the look that fits your brand — we build it for you, in your brand, wired to your GoHighLevel."
       />
       <TemplateGrid showHeader={false} />
       <HowItWorks />

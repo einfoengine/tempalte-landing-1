@@ -7,64 +7,67 @@ import { OFFER, buildRange, price } from "@/lib/offer";
  * a browser mockup. Stats are honest-early (no fabricated launch counts — the
  * plan's proof standard forbids them); swap in real counts as they accrue. */
 const STATS = [
-  { value: buildRange(), label: "From intake to live" },
-  { value: `${TEMPLATES.length}`, label: "Templates, one content system" },
-  { value: "Maintained", label: "After launch, not handed off" },
+  { value: buildRange(), label: "From your details to live" },
+  { value: `${TEMPLATES.length}`, label: "Designs to choose from" },
+  { value: `${OFFER.supportMonths} months`, label: "Free technical support" },
 ];
 
 export default function Hero() {
   const drop = newDrop();
   return (
-    <section id="hero" className="hero-dot-bg pt-16 pb-24 overflow-hidden">
+    <section id="gw-hero" className="gw-hero-dot-bg pt-16 pb-24 overflow-hidden">
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-12 items-center">
           {/* Left — copy */}
           <div className="text-center lg:text-left">
             <span className="inline-flex items-center gap-2 bg-orange-50 text-orange-600 text-sm font-semibold px-4 py-1.5 rounded-full border border-orange-100 mb-7">
               <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
-              New drop: {drop.name} · Built for HighLevel SaaS
+              New this month: {drop.name} · Built for HighLevel agencies
             </span>
 
             <h1 className="text-4xl sm:text-5xl xl:text-6xl text-slate-900 leading-[1.05] tracking-tight mb-6">
               <span className="block font-light text-slate-500">Your SaaS is ready.</span>
               <span className="block font-bold">
-                Your website <span className="kw">says otherwise.</span>
+                Your website <span className="gw-kw">says otherwise.</span>
               </span>
             </h1>
 
             <p className="text-lg text-slate-500 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-9">
-              Conversion-ready website templates for HighLevel SaaS agencies. Pick
-              one — we build your site from it in your brand, wire your CRM, and
-              launch it in {buildRange()}. Not a file. A finished website.
+              Website designs built for HighLevel agencies selling their own SaaS.
+              Pick the one you like — we build it in your brand, connect your
+              GoHighLevel, and launch it on your domain in {buildRange()}.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center lg:justify-start justify-center gap-4 mb-5">
+            <div className="flex flex-col sm:flex-row flex-wrap items-center lg:justify-start justify-center gap-4 mb-5">
               <Link
                 href="/templates"
-                className="cta-glow group inline-flex items-center justify-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-bold pl-8 pr-3 py-3 rounded-full text-base transition-colors w-full sm:w-auto"
+                className="gw-cta-glow group inline-flex items-center justify-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-bold pl-8 pr-3 py-3 rounded-full text-base transition-colors w-full sm:w-auto shrink-0"
               >
-                Browse templates
+                See templates
                 <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-lg leading-none transition-transform group-hover:translate-x-0.5">→</span>
               </Link>
               <Link
                 href={`/templates/${drop.slug}`}
-                className="text-slate-700 font-semibold px-8 py-4 rounded-full border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-colors w-full sm:w-auto text-center"
+                className="text-slate-700 font-semibold px-8 py-4 rounded-full border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-colors w-full sm:w-auto text-center shrink-0"
               >
-                Preview {drop.name} — new this month
+                Preview {drop.name}
               </Link>
             </div>
 
             <p className="text-sm text-slate-400 mb-10">
-              From {price(fromPrice())} launched · GHL embeds wired · You never touch code
+              {price(OFFER.price)} one-time · Your GoHighLevel connected · {OFFER.supportMonths} months support free
             </p>
 
-            <dl className="flex items-start justify-center lg:justify-start gap-8 sm:gap-12 pt-8 border-t border-slate-200/80">
+            {/* flex-wrap + whitespace-nowrap: stat values keep to one line and the
+                row drops to a second line instead of squeezing them. Same fix as
+                the CTA row above. */}
+            <dl className="flex flex-wrap items-start justify-center lg:justify-start gap-x-8 gap-y-6 sm:gap-x-12 pt-8 border-t border-slate-200/80">
               {STATS.map((stat) => (
                 <div key={stat.label}>
                   <dt className="sr-only">{stat.label}</dt>
                   <dd>
-                    <span className="block font-display font-bold text-3xl text-slate-900 tracking-tight">{stat.value}</span>
-                    <span className="block text-xs text-slate-400 leading-snug mt-1 max-w-[9rem]">{stat.label}</span>
+                    <span className="block font-display font-bold text-3xl text-slate-900 tracking-tight whitespace-nowrap">{stat.value}</span>
+                    <span className="block text-xs text-slate-400 leading-snug mt-1 max-w-36">{stat.label}</span>
                   </dd>
                 </div>
               ))}

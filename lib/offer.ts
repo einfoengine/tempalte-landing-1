@@ -20,10 +20,10 @@ export const OFFER = {
 
 /** What every build includes. */
 export const INCLUDED: string[] = [
-  "We build your website from the template you pick",
-  "Designed in your brand — your logo, colours and type",
-  "Wired to your GoHighLevel — forms, chat and calendars",
-  "Launched on your own domain",
+  "Your whole website built from the design you pick",
+  "Your logo, colours, words and pricing throughout",
+  "Your GoHighLevel forms, chat and calendars connected",
+  "Launched on your own domain, ready for traffic",
   `${OFFER.supportMonths} months of technical support, free`,
 ];
 

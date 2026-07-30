@@ -27,7 +27,7 @@ export default function ContactPage() {
         subtitle="Want a theme recommendation for your niche, or just want to make sure this fits before you commit? Book a call or drop us a line — we know GoHighLevel."
       />
 
-      <section id="contact-body" className="pb-24 scroll-mt-20">
+      <section id="gw-contact-body" className="pb-24 scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-10 items-start">
           {/* Left — how to reach + what happens */}
           <div>

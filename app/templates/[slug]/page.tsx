@@ -4,16 +4,16 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageShell from "@/components/PageShell";
 import TemplateCard from "@/components/TemplateCard";
-import { PackageCards } from "@/components/Packages";
+import { OfferCard } from "@/components/Offer";
 import {
   getTemplate,
   getRelated,
   TEMPLATES,
-  CONTENT_SYSTEM,
+  TEMPLATE_PAGES,
   ENGINEERING,
   MATRIX_SECTIONS,
 } from "@/lib/templates";
-import { buildRange, fromPrice, price } from "@/lib/offer";
+import { OFFER, buildRange, price } from "@/lib/offer";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -45,7 +45,7 @@ export default async function TemplatePage({ params }: Props) {
   return (
     <PageShell>
       {/* Hero */}
-      <section id="template-header" className="hero-dot-bg pt-12 pb-16">
+      <section id="gw-template-header" className="gw-hero-dot-bg pt-12 pb-16">
         <div className="relative z-10 max-w-6xl mx-auto px-6">
           <Link href="/templates" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors mb-8">
             ← All templates
@@ -61,16 +61,16 @@ export default async function TemplatePage({ params }: Props) {
                 <span className="font-bold">{t.name}</span>
               </h1>
               <p className="text-lg text-slate-500 leading-relaxed mb-8 max-w-xl">{t.description}</p>
-              <div className="flex flex-col sm:flex-row gap-4 mb-4">
-                <Link href={`/start?template=${t.slug}`} className="cta-glow group inline-flex items-center justify-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-bold pl-8 pr-3 py-3 rounded-full transition-colors">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-4">
+                <Link href={`/start?template=${t.slug}`} className="gw-cta-glow group inline-flex items-center justify-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-bold pl-8 pr-3 py-3 rounded-full transition-colors">
                   Use this template
                   <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-lg leading-none transition-transform group-hover:translate-x-0.5">→</span>
                 </Link>
-                <Link href="/packages" className="text-slate-700 font-semibold px-8 py-4 rounded-full border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-colors text-center">
-                  See packages
+                <Link href="/pricing" className="text-slate-700 font-semibold px-8 py-4 rounded-full border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-colors text-center">
+                  See pricing
                 </Link>
               </div>
-              <p className="text-sm text-slate-400">From {price(fromPrice())} launched · Live in {buildRange()}</p>
+              <p className="text-sm text-slate-400">{price(OFFER.price)} built for you · Live in {buildRange()} · {OFFER.supportMonths} months support free</p>
             </div>
 
             <div className="relative">
@@ -101,14 +101,14 @@ export default async function TemplatePage({ params }: Props) {
       </section>
 
       {/* What's inside — page map */}
-      <section id="page-map" className="py-20 border-t border-slate-100 scroll-mt-20">
+      <section id="gw-page-map" className="py-20 border-t border-slate-100 scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-2xl md:text-3xl tracking-tight text-slate-900 mb-2">
-            <span className="font-light">What&apos;s inside — </span><span className="font-bold">the <span className="kw">content system</span></span>
+            <span className="font-light">Every page </span><span className="font-bold">we <span className="gw-kw">build for you</span></span>
           </h2>
-          <p className="text-slate-500 mb-8 max-w-2xl">A ThemeForest listing shows layouts. This is a selling architecture — 14 decided pages, 3 funnels and an academy shell, with copy direction included on every one.</p>
+          <p className="text-slate-500 mb-8 max-w-2xl">This isn&apos;t a homepage and an about page. {t.name} is a complete SaaS website — every page below, built in your brand and wired to your CRM.</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {CONTENT_SYSTEM.map((page) => (
+            {TEMPLATE_PAGES.map((page) => (
               <div key={page.name} className="rounded-xl border border-slate-200 bg-slate-50 p-4">
                 <div className="font-bold text-slate-800 text-sm mb-1">{page.name}</div>
                 <div className="text-xs text-slate-500">{page.note}</div>
@@ -119,12 +119,12 @@ export default async function TemplatePage({ params }: Props) {
       </section>
 
       {/* Presentation matrix */}
-      <section id="matrix" className="py-16 bg-slate-50 border-t border-slate-100 scroll-mt-20">
+      <section id="gw-matrix" className="py-16 bg-slate-50 border-t border-slate-100 scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-2xl md:text-3xl tracking-tight text-slate-900 mb-2">
             <span className="font-light">What you&apos;re actually </span><span className="font-bold">choosing</span>
           </h2>
-          <p className="text-slate-500 mb-8 max-w-2xl">Templates differ in presentation, not content. Here&apos;s how {t.name} renders each shared section of the system.</p>
+          <p className="text-slate-500 mb-8 max-w-2xl">Templates share the same pages and differ in how they look. Here&apos;s how {t.name} renders each section.</p>
           <div className="rounded-2xl border border-slate-200 overflow-x-auto bg-white max-w-2xl">
             <table className="w-full text-sm">
               <thead>
@@ -147,7 +147,7 @@ export default async function TemplatePage({ params }: Props) {
       </section>
 
       {/* Engineering strip */}
-      <section id="engineering" className="py-16 border-t border-slate-100 scroll-mt-20">
+      <section id="gw-engineering" className="py-16 border-t border-slate-100 scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-2xl tracking-tight text-slate-900 mb-6">
             <span className="font-light">The </span><span className="font-bold">engineering standard</span>
@@ -163,25 +163,25 @@ export default async function TemplatePage({ params }: Props) {
         </div>
       </section>
 
-      {/* Package selector */}
-      <section id="template-packages" className="py-20 bg-slate-50 border-t border-slate-100 scroll-mt-20">
+      {/* The offer */}
+      <section id="gw-template-offer" className="py-20 bg-slate-50 border-t border-slate-100 scroll-mt-20">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-10">
             <h2 className="text-2xl md:text-3xl tracking-tight text-slate-900 mb-2">
-              <span className="font-light">Launch {t.name} — </span><span className="font-bold">pick your <span className="kw">package</span></span>
+              <span className="font-light">Build your site with </span><span className="font-bold">{t.name}</span>
             </h2>
-            <p className="text-slate-500">Every package ends the same way: your site, live, maintained.</p>
+            <p className="text-slate-500">One template, one price, built in your brand.</p>
           </div>
-          <PackageCards />
+          <OfferCard templateName={t.name} templateSlug={t.slug} />
           <p className="text-center text-sm text-slate-400 mt-8">
-            Live within 7 days of completed intake, or the customization fee comes back
+            Live within 7 days of getting your details, or your money back
           </p>
         </div>
       </section>
 
       {/* Related */}
       {related.length > 0 && (
-        <section id="related-templates" className="py-16 border-t border-slate-100 scroll-mt-20">
+        <section id="gw-related-templates" className="py-16 border-t border-slate-100 scroll-mt-20">
           <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-2xl tracking-tight text-slate-900 mb-8">
               <span className="font-light">More </span><span className="font-bold">templates</span>

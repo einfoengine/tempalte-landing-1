@@ -34,7 +34,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Swipe callout — tinted block with an accent left border, for pull-quotes and
    reassurance strips. Emerald-tinted to match the brand. */
-.swipe {
+.gw-swipe {
   background: #ecfdf5;
   border-left: 3px solid #047857;
   border-radius: 0 10px 10px 0;
@@ -47,7 +47,7 @@ h1, h2, h3, h4, h5, h6 {
    Lime is only ever a background behind dark text: as *text* on white it sits
    near 1.6:1 and fails AA outright. Keep it to accents so it never competes
    with the theme covers. */
-.kw {
+.gw-kw {
   background-image: linear-gradient(
     180deg,
     transparent 76%,
@@ -73,7 +73,7 @@ body {
 
 /* Gradient text - deep emerald → emerald. Both stops stay ≥3:1 on white so the
    headline still clears AA for large text. */
-.gradient-text {
+.gw-gradient-text {
   background: linear-gradient(135deg, #02503a 0%, #0a9e70 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -81,7 +81,7 @@ body {
 }
 
 /* Section divider */
-.section-divider {
+.gw-section-divider {
   border: none;
   height: 1px;
   background: linear-gradient(to right, transparent, #e2e8f0, transparent);
@@ -90,11 +90,11 @@ body {
 /* Hide the native scrollbar where a custom scroller is supplied instead.
    Only use this when a visible, draggable replacement exists — otherwise it
    removes the only affordance that content scrolls at all. */
-.no-scrollbar {
+.gw-no-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
-.no-scrollbar::-webkit-scrollbar {
+.gw-no-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
@@ -104,7 +104,7 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-.animate-fade-up {
+.gw-animate-fade-up {
   animation: fadeUp 0.7s ease-out both;
 }
 
@@ -114,12 +114,12 @@ body {
   50%       { box-shadow: 0 0 0 12px rgba(4, 120, 87, 0); }
 }
 
-.cta-glow {
+.gw-cta-glow {
   animation: pulseGlow 2.5s ease-in-out infinite;
 }
 
 /* Hero dotted background */
-.hero-dot-bg {
+.gw-hero-dot-bg {
   background-color: #ffffff;
   background-image: radial-gradient(circle, rgba(4, 120, 87, 0.14) 1.5px, transparent 1.5px);
   background-size: 22px 22px;
@@ -127,7 +127,7 @@ body {
 }
 
 /* Radial fade so dots disappear toward the bottom */
-.hero-dot-bg::after {
+.gw-hero-dot-bg::after {
   content: '';
   position: absolute;
   inset: 0;

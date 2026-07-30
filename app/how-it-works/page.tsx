@@ -3,11 +3,11 @@ import Link from "next/link";
 import PageShell from "@/components/PageShell";
 import PageHero from "@/components/PageHero";
 import HowItWorks from "@/components/HowItWorks";
-import { buildRange, fromPrice, price } from "@/lib/offer";
+import { OFFER, buildRange, price } from "@/lib/offer";
 
 export const metadata: Metadata = {
   title: "How It Works — Launch-Ready GoHighLevel SaaS Websites | ghlsaastheme",
-  description: `You pick a template, we customize, wire your GHL embeds and launch it in ${buildRange()}. Here's exactly what we need from you and what you never have to do.`,
+  description: `You pick a template, we build your site from it in your brand, wire your GHL embeds and launch it in ${buildRange()}. Here's exactly what we need from you and what you never have to do.`,
   alternates: { canonical: "/how-it-works" },
 };
 
@@ -21,7 +21,7 @@ const FROM_YOU = [
 const NEVER = [
   "Open a code editor or run a command",
   "Wrestle a page builder or template",
-  "Write 14 pages of copy from scratch",
+  "Write a whole site of copy from scratch",
   "Chase a freelancer for edits after launch",
 ];
 
@@ -33,12 +33,12 @@ export default function HowItWorksPage() {
         titleLight="You pick."
         titleBold="We"
         keyword="build."
-        subtitle={`This isn't a template you download and figure out. You choose a template, we build your site around the content system and launch it — live in ${buildRange()}. Here's exactly how it goes.`}
+        subtitle={`This isn't a template you download and figure out. You choose a template, we build your site from it in your brand, wire your CRM and launch it — live in ${buildRange()}. Here's exactly how it goes.`}
       />
 
       <HowItWorks showHeader={false} />
 
-      <section id="what-we-need" className="py-20 scroll-mt-20">
+      <section id="gw-what-we-need" className="py-20 scroll-mt-20">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-6">
           <div className="rounded-2xl border border-slate-200 bg-white p-8">
             <h2 className="text-xl font-bold text-slate-900 tracking-tight mb-1">What we need from you</h2>
@@ -54,7 +54,7 @@ export default function HowItWorksPage() {
           </div>
           <div className="rounded-2xl border border-slate-200 bg-slate-900 p-8">
             <h2 className="text-xl font-bold text-white tracking-tight mb-1">What you never do</h2>
-            <p className="text-sm text-slate-400 mb-5">The whole point of the package.</p>
+            <p className="text-sm text-slate-400 mb-5">The whole point of paying us.</p>
             <ul className="space-y-3">
               {NEVER.map((item) => (
                 <li key={item} className="flex items-start gap-2.5 text-sm text-slate-300">
@@ -67,20 +67,20 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      <section id="hiw-cta" className="pb-24">
+      <section id="gw-hiw-cta" className="pb-24">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="text-2xl md:text-3xl tracking-tight text-slate-900 mb-4">
-            <span className="font-light">Live in {buildRange()} from </span>
-            <span className="font-bold">{price(fromPrice())} launched</span>
+            <span className="font-light">Live in {buildRange()} for </span>
+            <span className="font-bold">{price(OFFER.price)}</span>
           </h2>
-          <p className="text-slate-500 mb-7">Template, customization and maintenance — by the people who built the system.</p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/templates" className="cta-glow inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-bold pl-8 pr-3 py-3 rounded-full transition-colors w-full sm:w-auto justify-center">
-              Browse templates
+          <p className="text-slate-500 mb-7">We build your site in your brand, wire your CRM, and support it free for {OFFER.supportMonths} months.</p>
+          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4">
+            <Link href="/templates" className="gw-cta-glow inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-bold pl-8 pr-3 py-3 rounded-full transition-colors w-full sm:w-auto justify-center shrink-0">
+              See templates
               <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-lg leading-none">→</span>
             </Link>
-            <Link href="/packages" className="text-slate-700 font-semibold px-8 py-4 rounded-full border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-colors w-full sm:w-auto text-center">
-              See packages
+            <Link href="/pricing" className="text-slate-700 font-semibold px-8 py-4 rounded-full border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-colors w-full sm:w-auto text-center shrink-0">
+              See pricing
             </Link>
           </div>
         </div>

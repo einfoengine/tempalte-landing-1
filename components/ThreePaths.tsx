@@ -4,27 +4,27 @@
 const PATHS = [
   {
     label: "DIY in the funnel builder",
-    body: "Three weekends later, it still looks like a funnel — because it is one.",
+    body: "Three weekends gone, and it still looks like a funnel — because it is one.",
   },
   {
     label: "A marketplace template",
-    body: "Pretty pages, lorem ipsum, zero GHL fit. The copy — the hard part — is still on you.",
+    body: "Pretty pages full of placeholder text. You still have to write it, build it and wire your CRM yourself.",
   },
   {
     label: "A custom agency",
-    body: "$5k and six weeks for a site nobody maintains after handoff.",
+    body: "$5,000 and six weeks — then nobody touches it again after handoff.",
   },
 ];
 
 export default function ThreePaths() {
   return (
-    <section id="three-paths" className="bg-white py-24 border-t border-slate-100">
+    <section id="gw-three-paths" className="bg-white py-24 border-t border-slate-100">
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-3xl mb-12">
           <span className="inline-block text-orange-600 font-semibold text-sm uppercase tracking-widest mb-4">The problem</span>
           <h2 className="text-3xl md:text-4xl tracking-tight text-slate-900 leading-tight">
-            <span className="font-light text-slate-500">Every GHL founder gets a website one of three ways. </span>
-            <span className="font-bold">All three <span className="kw">stall</span>.</span>
+            <span className="font-light text-slate-500">Every GoHighLevel agency owner gets a website one of three ways. </span>
+            <span className="font-bold">All three <span className="gw-kw">stall</span>.</span>
           </h2>
         </div>
 

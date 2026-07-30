@@ -25,7 +25,7 @@ export default function PageHero({
   children?: React.ReactNode;
 }) {
   return (
-    <section id={id} className="hero-dot-bg pt-12 pb-16">
+    <section id={id} className="gw-hero-dot-bg pt-12 pb-16">
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         {backLink && (
           <Link
@@ -50,7 +50,7 @@ export default function PageHero({
             {keyword && (
               <>
                 {" "}
-                <span className="kw">{keyword}</span>
+                <span className="gw-kw">{keyword}</span>
               </>
             )}
           </span>

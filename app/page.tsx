@@ -7,7 +7,7 @@ import TemplateFeatures from "@/components/TemplateFeatures";
 import HotThemes from "@/components/HotThemes";
 import TemplateCard from "@/components/TemplateCard";
 import HowItWorks from "@/components/HowItWorks";
-import { PackageCards } from "@/components/Packages";
+import { OfferCard } from "@/components/Offer";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
@@ -29,15 +29,15 @@ export default function Home() {
         <HotThemes />
 
         {/* §1.6 Gallery preview — six cards into the full gallery */}
-        <section id="gallery-preview" className="py-24 border-t border-slate-100">
+        <section id="gw-gallery-preview" className="py-24 border-t border-slate-100">
           <div className="max-w-6xl mx-auto px-6">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
               <div>
                 <h2 className="text-3xl md:text-4xl tracking-tight text-slate-900 mb-2">
                   <span className="font-light">The </span>
-                  <span className="font-bold">template <span className="kw">library</span></span>
+                  <span className="font-bold">template <span className="gw-kw">library</span></span>
                 </h2>
-                <p className="text-slate-500">Same selling system. {TEMPLATES.length} ways to present it.</p>
+                <p className="text-slate-500">{TEMPLATES.length} designs. Every one a complete website, built for you.</p>
               </div>
               <Link href="/templates" className="text-sm font-semibold text-slate-500 hover:text-slate-900 border border-slate-200 hover:border-slate-300 rounded-full px-5 py-2.5 shrink-0 transition-colors">
                 See all {TEMPLATES.length} templates →
@@ -49,27 +49,27 @@ export default function Home() {
               ))}
             </div>
             <p className="text-center text-sm text-slate-400 mt-8">
-              Every demo runs the same demo content — so you&apos;re comparing design, not copywriting.
+              Every preview uses the same demo content — so you&apos;re comparing design, not copywriting.
             </p>
           </div>
         </section>
 
         <HowItWorks />
 
-        {/* §1.8 Packages preview */}
-        <section id="packages-preview" className="bg-white py-24 border-t border-slate-100">
+        {/* §1.8 Pricing preview — one offer, no tiers */}
+        <section id="gw-pricing-preview" className="bg-white py-24 border-t border-slate-100">
           <div className="max-w-5xl mx-auto px-6">
             <div className="max-w-2xl mx-auto text-center mb-12">
-              <span className="inline-block text-orange-600 font-semibold text-sm uppercase tracking-widest mb-4">Packages</span>
+              <span className="inline-block text-orange-600 font-semibold text-sm uppercase tracking-widest mb-4">Pricing</span>
               <h2 className="text-3xl md:text-4xl tracking-tight text-slate-900 leading-tight mb-4">
-                <span className="font-light text-slate-500">Every package ends the same way: </span>
-                <span className="font-bold">live and <span className="kw">maintained</span>.</span>
+                <span className="font-light text-slate-500">Pick one design. </span>
+                <span className="font-bold">One price, <span className="gw-kw">everything included</span>.</span>
               </h2>
             </div>
-            <PackageCards />
+            <OfferCard />
             <p className="text-center mt-8">
-              <Link href="/packages" className="text-orange-600 font-bold text-sm hover:underline">
-                Full package breakdown + what maintenance means →
+              <Link href="/pricing" className="text-orange-600 font-bold text-sm hover:underline">
+                See exactly what&apos;s included →
               </Link>
             </p>
           </div>

@@ -19,7 +19,7 @@ export default function PricingPage() {
         titleLight="Pick a template."
         titleBold="We build the"
         keyword="site."
-        subtitle={`One flat price to build your website from any template — in your brand, wired to your GoHighLevel, with ${OFFER.supportMonths} months of technical support included. The price is a placeholder; set your own.`}
+        subtitle={`One flat price to build your website from any template — in your brand, connected to your GoHighLevel, with ${OFFER.supportMonths} months of technical support included. The price is a placeholder; set your own.`}
       />
       <Offer />
       <FAQ />

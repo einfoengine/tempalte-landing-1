@@ -4,7 +4,7 @@ import type { Template } from "@/lib/templates";
 import { OFFER, price } from "@/lib/offer";
 
 const BADGE_LABEL: Record<string, string> = {
-  hot: "Most launched",
+  hot: "Flagship",
   new: "New",
   updated: "Updated",
 };

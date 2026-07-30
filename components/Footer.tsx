@@ -10,7 +10,7 @@ const COLUMNS = [
     title: "Product",
     links: [
       { href: "/templates", label: "Templates" },
-      { href: "/packages", label: "Packages" },
+      { href: "/pricing", label: "Pricing" },
       { href: "/work", label: "Example builds" },
       { href: "/how-it-works", label: "How it works" },
     ],
@@ -47,23 +47,23 @@ export default function Footer() {
                 <span className="font-bold">Your website should say so.</span>
               </h2>
               <p className="text-slate-400 text-sm">
-                A launch, not a file · Live in {buildRange()} · Maintained after ·
-                {" "}{OFFER.slotsPerMonth} build slots a month
+                A finished site, not a file · Live in {buildRange()} ·{" "}
+                {OFFER.supportMonths} months support free
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 shrink-0">
               <Link
                 href="/templates"
-                className="group inline-flex items-center justify-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-bold pl-7 pr-3 py-3 rounded-full transition-colors whitespace-nowrap"
+                className="group inline-flex items-center justify-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-bold pl-7 pr-3 py-3 rounded-full transition-colors"
               >
-                Browse templates
+                See templates
                 <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-lg leading-none transition-transform group-hover:translate-x-0.5">→</span>
               </Link>
               <Link
-                href="/packages"
-                className="inline-flex items-center justify-center text-slate-200 font-semibold px-7 py-3 rounded-full border border-slate-600 hover:border-slate-500 hover:bg-slate-800 transition-colors whitespace-nowrap"
+                href="/pricing"
+                className="inline-flex items-center justify-center text-slate-200 font-semibold px-7 py-3 rounded-full border border-slate-600 hover:border-slate-500 hover:bg-slate-800 transition-colors"
               >
-                See packages
+                See pricing
               </Link>
             </div>
           </div>
@@ -81,9 +81,10 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed">
-              Launch-ready SaaS websites for HighLevel agency owners — a proven
-              content system inside, customized by our team, live in {buildRange()},
-              maintained after launch. Not a file. A launch.
+              Launch-ready SaaS websites for HighLevel agency owners. Pick a
+              template — we build your site from it in your brand, wire your CRM,
+              and support it free for {OFFER.supportMonths} months. Not a file. A
+              finished website.
             </p>
             <FooterSignup />
           </div>

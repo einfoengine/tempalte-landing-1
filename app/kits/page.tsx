@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import TemplateCard from "@/components/TemplateCard";
 import { TEMPLATES } from "@/lib/templates";
-import { OFFER, price, fromPrice } from "@/lib/offer";
+import { OFFER, price } from "@/lib/offer";
 
 /* Internal UI-kit reference at /kits. Deliberately unlinked from the navbar
    and excluded from sitemap.ts — it exists so we can eyeball the design
@@ -72,7 +72,7 @@ export default function KitsPage() {
         <h1 className="text-4xl sm:text-5xl text-slate-900 leading-[1.05] tracking-tight mb-4">
           <span className="block font-light text-slate-500">ghlsaastheme</span>
           <span className="block font-bold">
-            UI <span className="kw">kit</span>
+            UI <span className="gw-kw">kit</span>
           </span>
         </h1>
         <p className="text-lg text-slate-500 max-w-xl leading-relaxed">
@@ -135,7 +135,7 @@ export default function KitsPage() {
         </div>
       </KitSection>
 
-      <hr className="section-divider mb-16" />
+      <hr className="gw-section-divider mb-16" />
 
       {/* ------------------------------------------------------ Typography */}
       <KitSection
@@ -145,14 +145,14 @@ export default function KitsPage() {
         <div className="space-y-8">
           <div>
             <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
-              Display headline — split weight + .kw swash
+              Display headline — split weight + .gw-kw swash
             </p>
             <p className="text-4xl sm:text-5xl leading-[1.05] tracking-tight font-display">
               <span className="block font-light text-slate-500">
                 One membership.
               </span>
               <span className="block font-bold text-slate-900">
-                Every <span className="kw">theme</span>.
+                Every <span className="gw-kw">theme</span>.
               </span>
             </p>
           </div>
@@ -161,7 +161,7 @@ export default function KitsPage() {
             <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
               Gradient text
             </p>
-            <p className="font-display font-bold text-3xl tracking-tight gradient-text">
+            <p className="font-display font-bold text-3xl tracking-tight gw-gradient-text">
               Deep emerald gradient headline
             </p>
           </div>
@@ -193,7 +193,7 @@ export default function KitsPage() {
         </div>
       </KitSection>
 
-      <hr className="section-divider mb-16" />
+      <hr className="gw-section-divider mb-16" />
 
       {/* --------------------------------------------------------- Buttons */}
       <KitSection
@@ -203,7 +203,7 @@ export default function KitsPage() {
         <div className="flex flex-wrap items-center gap-5">
           <a
             href="#"
-            className="cta-glow group inline-flex items-center justify-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-bold pl-8 pr-3 py-3 rounded-full transition-colors"
+            className="gw-cta-glow group inline-flex items-center justify-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-bold pl-8 pr-3 py-3 rounded-full transition-colors"
           >
             Primary CTA
             <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-lg leading-none transition-transform group-hover:translate-x-0.5">
@@ -231,7 +231,7 @@ export default function KitsPage() {
         </div>
       </KitSection>
 
-      <hr className="section-divider mb-16" />
+      <hr className="gw-section-divider mb-16" />
 
       {/* ---------------------------------------------------------- Badges */}
       <KitSection
@@ -258,7 +258,7 @@ export default function KitsPage() {
         </div>
       </KitSection>
 
-      <hr className="section-divider mb-16" />
+      <hr className="gw-section-divider mb-16" />
 
       {/* ----------------------------------------------------------- Cards */}
       <KitSection
@@ -300,9 +300,9 @@ export default function KitsPage() {
               <div className="bg-white rounded-2xl border border-slate-200 p-8 text-center shadow-sm">
                 <p className="text-sm text-slate-400 mb-2">Ready when you are</p>
                 <p className="font-display font-bold text-3xl text-slate-900 tracking-tight">
-                  from {price(fromPrice())}
+                  {price(OFFER.price)}
                   <span className="text-lg font-semibold text-slate-400">
-                    {" "}launched
+                    {" "}built for you
                   </span>
                 </p>
               </div>
@@ -311,7 +311,7 @@ export default function KitsPage() {
         </div>
       </KitSection>
 
-      <hr className="section-divider mb-16" />
+      <hr className="gw-section-divider mb-16" />
 
       {/* ------------------------------------------------------- Surfaces */}
       <KitSection
@@ -321,9 +321,9 @@ export default function KitsPage() {
         <div className="grid sm:grid-cols-2 gap-6">
           <div>
             <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">
-              hero-dot-bg
+              gw-hero-dot-bg
             </p>
-            <div className="hero-dot-bg h-40 rounded-2xl border border-slate-200 overflow-hidden flex items-center justify-center">
+            <div className="gw-hero-dot-bg h-40 rounded-2xl border border-slate-200 overflow-hidden flex items-center justify-center">
               <p className="relative z-10 text-sm text-slate-500">
                 Dotted hero background with radial fade
               </p>
@@ -332,9 +332,9 @@ export default function KitsPage() {
 
           <div>
             <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">
-              animate-fade-up
+              gw-animate-fade-up
             </p>
-            <div className="animate-fade-up h-40 rounded-2xl border border-slate-200 bg-white flex items-center justify-center">
+            <div className="gw-animate-fade-up h-40 rounded-2xl border border-slate-200 bg-white flex items-center justify-center">
               <p className="text-sm text-slate-500">
                 Faded up 24px on page load
               </p>
@@ -344,9 +344,9 @@ export default function KitsPage() {
 
         <div className="mt-6">
           <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">
-            section-divider
+            gw-section-divider
           </p>
-          <hr className="section-divider" />
+          <hr className="gw-section-divider" />
         </div>
       </KitSection>
 
