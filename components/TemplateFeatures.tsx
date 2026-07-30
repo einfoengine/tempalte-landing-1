@@ -1,152 +1,114 @@
+import Link from "next/link";
+import { OFFER, price } from "@/lib/offer";
+
+/* Trimmed from nine cards to six.
+ *
+ * Dropped: "Easy to Customize (6 centralized data files)", "Well Modularized
+ * (67+ standalone components)", "Well Documented (setup guide)". Those sell
+ * developer experience to someone who edits the code — but in a done-for-you
+ * model the buyer never opens it, so they don't land. They're real selling
+ * points for the source-code add-on, and belong there instead.
+ *
+ * Colours are neutral with a single emerald accent, not a nine-hue rainbow:
+ * this section sits directly under the theme grid and must not compete with it.
+ */
 const features = [
   {
     icon: "🔍",
-    title: "Highly SEO Friendly",
-    badge: "Discovery",
+    title: "Built to rank",
+    badge: "SEO",
     description:
-      "Semantic HTML5, optimized meta tags, Open Graph, Twitter Card, canonical URLs, and clean heading hierarchy baked in from day one - so every page Google crawls is ready to rank.",
-    highlights: ["Semantic HTML5 structure", "Page-level meta + Open Graph", "Clean URL architecture", "Heading hierarchy (H1→H6)"],
-    color: "border-blue-200 bg-blue-50",
-    badgeColor: "bg-blue-100 text-blue-700",
-    iconBg: "bg-blue-100",
+      "Semantic HTML, clean heading hierarchy, meta and Open Graph tags, canonical URLs — set up properly on every page we build, so Google has nothing to complain about.",
+    highlights: ["Semantic HTML structure", "Page-level meta + Open Graph", "Clean URL architecture"],
   },
   {
     icon: "🤖",
-    title: "AEO & GEO Friendly",
-    badge: "AI Search",
+    title: "Built to be cited",
+    badge: "AI search",
     description:
-      "Structured for Answer Engine Optimization (Perplexity, ChatGPT search) and Generative Engine Optimization (Google AI Overviews, Gemini). Your content is formatted so AI engines cite it, not just crawl it.",
-    highlights: ["FAQ structured for AI extraction", "Clear entity definitions", "Concise, citeable copy blocks", "Schema-ready markup points"],
-    color: "border-purple-200 bg-purple-50",
-    badgeColor: "bg-purple-100 text-purple-700",
-    iconBg: "bg-purple-100",
+      "Structured for the answer engines your buyers now use — Perplexity, ChatGPT search, Google AI Overviews. Your content is formatted so AI cites it, not just crawls it.",
+    highlights: ["FAQs structured for extraction", "Clear entity definitions", "Concise, citeable copy blocks"],
   },
   {
     icon: "🎨",
-    title: "Customizable as per Brand",
-    badge: "Branding",
+    title: "Branded to you",
+    badge: "Your brand",
     description:
-      "Every visual identity element lives in CSS custom properties - swap your brand color, font, and radius in seconds. Your logo, your palette, your voice. The template disappears; your brand appears.",
-    highlights: ["CSS variable design tokens", "Font swap in one line", "Brand color throughout", "Logo slot ready"],
-    color: "border-orange-200 bg-orange-50",
-    badgeColor: "bg-orange-100 text-orange-700",
-    iconBg: "bg-orange-100",
-  },
-  {
-    icon: "⚡",
-    title: "Easy to Customize",
-    badge: "DX",
-    description:
-      "All site copy lives in 6 centralized TypeScript data files - no hunting through 67 components to change a headline. Update pricing, features, FAQs, integrations, and contact info in one place.",
-    highlights: ["6 centralized data files", "No component hunting", "Typed data structures", "Change copy without touching JSX"],
-    color: "border-yellow-200 bg-yellow-50",
-    badgeColor: "bg-yellow-100 text-yellow-700",
-    iconBg: "bg-yellow-100",
-  },
-  {
-    icon: "📚",
-    title: "Well Documented",
-    badge: "Docs",
-    description:
-      "Every data file, component, and theme variant is documented. The setup guide walks you from clone to deployed in under an hour - even if you've never touched a Next.js project.",
-    highlights: ["Full setup guide included", "Data file documentation", "Component reference", "Theme customization guide"],
-    color: "border-teal-200 bg-teal-50",
-    badgeColor: "bg-teal-100 text-teal-700",
-    iconBg: "bg-teal-100",
-  },
-  {
-    icon: "🙋",
-    title: "Good Support",
-    badge: "Support",
-    description:
-      "Real person, real replies. Not a ticket queue that closes in 48 hours. If something isn't working or you're stuck on a customization, you get direct access to someone who knows the codebase.",
-    highlights: ["Direct access support", "Fast response times", "Customization help", "Bug fixes covered"],
-    color: "border-green-200 bg-green-50",
-    badgeColor: "bg-green-100 text-green-700",
-    iconBg: "bg-green-100",
-  },
-  {
-    icon: "📦",
-    title: "Expandable",
-    badge: "Scalable",
-    description:
-      "Add new pages, sections, or entire feature sets without touching existing architecture. The routing, component system, and data layer are designed to grow alongside your product.",
-    highlights: ["Add pages without breaking", "Section-level expansion", "Data layer scales cleanly", "No tight coupling between modules"],
-    color: "border-indigo-200 bg-indigo-50",
-    badgeColor: "bg-indigo-100 text-indigo-700",
-    iconBg: "bg-indigo-100",
-  },
-  {
-    icon: "🧩",
-    title: "Well Modularized",
-    badge: "Architecture",
-    description:
-      "67+ components are independently usable - drop any section into any page with no side effects. Each module owns its own data, styles, and logic. Nothing breaks when you move things around.",
-    highlights: ["67+ standalone components", "No shared global state", "Drop-in section architecture", "Clear naming conventions"],
-    color: "border-rose-200 bg-rose-50",
-    badgeColor: "bg-rose-100 text-rose-700",
-    iconBg: "bg-rose-100",
+      "Your logo, your palette, your voice. We set it all up during the build — the theme disappears and your brand is what's left. Nothing ships looking like a template.",
+    highlights: ["Your colours throughout", "Your logo and typography", "Copy written in your voice"],
   },
   {
     icon: "🪶",
-    title: "Lightweight & Fast",
+    title: "Genuinely fast",
     badge: "Performance",
     description:
-      "No page builder bloat, no heavy runtime dependencies. Pure Next.js 16 + Tailwind CSS 4 + static generation = sub-second page loads, high Core Web Vitals, and a Lighthouse score that makes enterprise sites jealous.",
-    highlights: ["Static site generation (SSG)", "Zero runtime CSS overhead", "No heavy page builder", "Optimized Core Web Vitals"],
-    color: "border-slate-200 bg-slate-50",
-    badgeColor: "bg-slate-100 text-slate-600",
-    iconBg: "bg-slate-100",
+      "No page-builder bloat, no heavy runtime. Static generation on modern infrastructure means sub-second loads and Core Web Vitals that hold up when Google looks.",
+    highlights: ["Static site generation", "No page-builder overhead", "Optimised Core Web Vitals"],
+  },
+  {
+    icon: "📈",
+    title: "Grows with you",
+    badge: "Scalable",
+    description:
+      "Need a new landing page for a campaign, or a section for a service you just launched? Send it over. Your site expands as your offer does — that's what the membership is for.",
+    highlights: ["New pages on request", "Seasonal campaign sections", "Updates included"],
+  },
+  {
+    icon: "🙋",
+    title: "A real person replies",
+    badge: "Support",
+    description:
+      "Not a ticket queue that auto-closes in 48 hours. You get direct access to the people who built your site and know exactly how it works.",
+    highlights: ["Direct access support", "Fast response times", "The team that built it"],
   },
 ];
 
 export default function TemplateFeatures() {
   return (
-    <section className="bg-white py-24 border-t border-slate-100">
+    <section id="includes" className="bg-white py-24 border-t border-slate-100 scroll-mt-20">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="inline-block text-orange-500 font-semibold text-sm uppercase tracking-widest mb-4">
-            Why PureSaaS
+          <span className="inline-block text-orange-600 font-semibold text-sm uppercase tracking-widest mb-4">
+            The quality bar
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight mb-5">
-            Not Just Pretty - Built to
+          <h2 className="text-4xl md:text-5xl tracking-tight text-slate-900 leading-tight mb-5">
+            <span className="font-light text-slate-500">Not just pretty —</span>
             <br />
-            <span className="gradient-text">Perform and Scale</span>
+            <span className="font-bold">
+              built to <span className="kw">perform</span>
+            </span>
           </h2>
           <p className="text-lg text-slate-500 leading-relaxed">
             Most templates look good in the preview and fall apart in production.
-            PureSaaS is engineered for real-world use - from SEO ranking to
-            AI search visibility to developer experience.
+            Every theme in the library is engineered for the things that actually
+            move revenue — ranking, speed, and looking like a company worth paying.
           </p>
         </div>
 
-        {/* Feature Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
-          {features.slice(0, 6).map((f) => (
+        {/* Feature grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {features.map((f) => (
             <div
               key={f.title}
-              className={`rounded-2xl border p-6 ${f.color} hover:shadow-md transition-all`}
+              className="rounded-2xl border border-slate-200 bg-slate-50 p-6 hover:bg-white hover:border-slate-300 hover:shadow-md transition-all"
             >
-              {/* Icon + badge */}
               <div className="flex items-start justify-between mb-4">
-                <div className={`w-11 h-11 ${f.iconBg} rounded-xl flex items-center justify-center text-xl`}>
+                <div className="w-11 h-11 bg-orange-50 border border-orange-100 rounded-xl flex items-center justify-center text-xl">
                   {f.icon}
                 </div>
-                <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${f.badgeColor}`}>
+                <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-orange-50 text-orange-600 border border-orange-100">
                   {f.badge}
                 </span>
               </div>
 
-              {/* Text */}
-              <h3 className="font-black text-slate-900 text-base mb-2">{f.title}</h3>
-              <p className="text-slate-600 text-sm leading-relaxed mb-4">{f.description}</p>
+              <h3 className="font-bold text-slate-900 text-base mb-2">{f.title}</h3>
+              <p className="text-slate-500 text-sm leading-relaxed mb-4">{f.description}</p>
 
-              {/* Highlights */}
               <ul className="space-y-1.5">
                 {f.highlights.map((h) => (
-                  <li key={h} className="flex items-center gap-2 text-slate-500 text-xs">
-                    <svg className="w-3.5 h-3.5 text-orange-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li key={h} className="flex items-center gap-2 text-slate-400 text-xs">
+                    <svg className="w-3.5 h-3.5 text-orange-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                     </svg>
                     {h}
@@ -157,53 +119,22 @@ export default function TemplateFeatures() {
           ))}
         </div>
 
-        {/* Bottom row - 3 remaining in a wider layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {features.slice(6).map((f) => (
-            <div
-              key={f.title}
-              className={`rounded-2xl border p-6 ${f.color} hover:shadow-md transition-all`}
-            >
-              <div className="flex items-start justify-between mb-4">
-                <div className={`w-11 h-11 ${f.iconBg} rounded-xl flex items-center justify-center text-xl`}>
-                  {f.icon}
-                </div>
-                <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${f.badgeColor}`}>
-                  {f.badge}
-                </span>
-              </div>
-              <h3 className="font-black text-slate-900 text-base mb-2">{f.title}</h3>
-              <p className="text-slate-600 text-sm leading-relaxed mb-4">{f.description}</p>
-              <ul className="space-y-1.5">
-                {f.highlights.map((h) => (
-                  <li key={h} className="flex items-center gap-2 text-slate-500 text-xs">
-                    <svg className="w-3.5 h-3.5 text-orange-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                    </svg>
-                    {h}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        {/* Bottom summary strip */}
+        {/* Summary strip */}
         <div className="mt-12 bg-slate-900 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <div className="text-white font-black text-xl mb-1">
-              SEO · AEO · GEO · Fast · Modular · Documented · Supported
+            <div className="text-white font-bold text-xl mb-1 tracking-tight">
+              SEO · AI search · Fast · Branded · Supported
             </div>
             <div className="text-slate-400 text-sm">
-              Every quality bar a professional product website needs to clear - all in one template.
+              Every bar a professional site has to clear — built for you, not handed to you.
             </div>
           </div>
-          <a
-            href="#pricing"
-            className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-7 py-3.5 rounded-xl text-sm transition-colors whitespace-nowrap shrink-0"
+          <Link
+            href="/start"
+            className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-7 py-3.5 rounded-full text-sm transition-colors whitespace-nowrap shrink-0"
           >
-            Get the Template - $97 →
-          </a>
+            Start my build — {price(OFFER.monthlyPrice)}/mo →
+          </Link>
         </div>
       </div>
     </section>

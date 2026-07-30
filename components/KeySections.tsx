@@ -144,7 +144,7 @@ const categoryColors: Record<string, string> = {
 
 export default function KeySections() {
   return (
-    <section className="bg-slate-50 py-24 border-t border-slate-100">
+    <section id="key-sections" className="bg-slate-50 py-24 border-t border-slate-100">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">

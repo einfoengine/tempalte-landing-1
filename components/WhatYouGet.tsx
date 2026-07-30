@@ -83,7 +83,7 @@ const themes = [
 
 export default function WhatYouGet() {
   return (
-    <section id="includes" className="bg-white py-24">
+    <section id="theme-contents" className="bg-white py-24">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">

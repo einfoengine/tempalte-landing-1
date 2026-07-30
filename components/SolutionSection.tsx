@@ -27,7 +27,7 @@ const pillars = [
 
 export default function SolutionSection() {
   return (
-    <section className="bg-slate-50 py-24 border-y border-slate-100">
+    <section id="solution" className="bg-slate-50 py-24 border-y border-slate-100">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">

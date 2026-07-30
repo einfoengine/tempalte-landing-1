@@ -13,17 +13,23 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "PureSaaS - The Conversion-Ready Website Template for GHL SaaS Sellers",
+  /* Theme pages set relative openGraph images, which need an absolute base to
+     resolve. Set NEXT_PUBLIC_SITE_URL in the deploy env or share links will
+     point at localhost. */
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  ),
+  title: "Theme Club - Premium GoHighLevel Themes, One Membership",
   description:
-    "Stop losing deals to a generic website. PureSaaS is a premium 11-page Next.js template built for GoHighLevel white-label SaaS sellers - launch a professional marketing site in days.",
+    "Every theme, funnel and snapshot your GHL agency needs, in one membership. Engineered for GoHighLevel agencies and SaaS resellers, with new drops every month.",
   openGraph: {
-    title: "PureSaaS - The Website Template Built for GHL SaaS Sellers",
+    title: "Theme Club - Premium GoHighLevel Themes, One Membership",
     description:
-      "11 pages, 67+ components, 4 design themes. Engineered around the conversion logic of selling a GHL-powered SaaS. One-time purchase. Instant access.",
+      "One membership. Every theme, funnel and snapshot - built for GoHighLevel agencies and SaaS resellers. New drops monthly, full source included.",
     type: "website",
   },
 };
