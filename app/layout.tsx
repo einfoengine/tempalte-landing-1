@@ -23,13 +23,13 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   ),
-  title: "Theme Club - Premium GoHighLevel Themes, One Membership",
+  title: "ghlsaastheme — Launch-Ready SaaS Websites for HighLevel Agencies",
   description:
-    "Every theme, funnel and snapshot your GHL agency needs, in one membership. Engineered for GoHighLevel agencies and SaaS resellers, with new drops every month.",
+    "Conversion-ready website templates for HighLevel SaaS agencies — a proven content system inside, customized by our team, live in 5–7 days, maintained after launch. Not a file. A launch.",
   openGraph: {
-    title: "Theme Club - Premium GoHighLevel Themes, One Membership",
+    title: "ghlsaastheme — Launch-Ready SaaS Websites for HighLevel Agencies",
     description:
-      "One membership. Every theme, funnel and snapshot - built for GoHighLevel agencies and SaaS resellers. New drops monthly, full source included.",
+      "Pick a template. We brand it, wire your GHL embeds, and launch it — then keep it maintained. Template + customization + maintenance, from $497 launched.",
     type: "website",
   },
 };

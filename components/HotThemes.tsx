@@ -9,40 +9,31 @@ import {
 } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { THEMES, type Theme } from "@/lib/themes";
-import { NICHES } from "@/lib/niches";
+import { TEMPLATES, sortedTemplates, type Template } from "@/lib/templates";
+import { OFFER, price } from "@/lib/offer";
 
-/* Full-bleed showcase on a real horizontal scroll container.
- *
- * The featured panel is 50% wide and always centred; its neighbours land on
- * exactly 25% each for free, since centring a 50% panel leaves 25% either side.
- *
- * Keeping it centred at both ends of the catalog needs an infinite track. The
- * list is rendered three times and we live in the middle copy: when the active
- * index leaves that copy we fold it back by one copy-width with transitions
- * off. Every copy is identical, so the fold is invisible — and it means there's
- * always a real theme on both sides rather than dead space at the extremes.
- *
- * Below md the 25% slots are unusable (97px on a 390px phone), so panels take
- * 85% and the same sequence plays one at a time.
- */
+/* Full-bleed showcase on a real horizontal scroll container. Featured panel is
+ * 50% wide and always centred; neighbours fall to 25% each for free. Infinite
+ * loop via three rendered copies, folded back into the middle copy. */
 
 const ROTATE_MS = 4500;
 const SETTLE_MS = 180;
-/** How long a smooth scroll gets before we fold back into the middle copy. */
 const FOLD_AFTER_MS = 700;
 const COPIES = 3;
 
-function bestFor(theme: Theme): string {
-  const niche = NICHES.find((n) => n.category === theme.category);
-  return niche ? `Selling to ${niche.prospect}` : theme.category;
-}
+const ORDERED = sortedTemplates();
 
-function PanelBackground({ theme }: { theme: Theme }) {
-  if (theme.cover) {
+const BADGE_LABEL: Record<string, string> = {
+  hot: "Most launched",
+  new: "New drop",
+  updated: "Updated",
+};
+
+function PanelBackground({ template }: { template: Template }) {
+  if (template.cover) {
     return (
       <Image
-        src={theme.cover}
+        src={template.cover}
         alt=""
         fill
         sizes="(max-width: 768px) 85vw, 50vw"
@@ -62,22 +53,21 @@ function PanelBackground({ theme }: { theme: Theme }) {
   );
 }
 
-function Panel({ theme, featured }: { theme: Theme; featured: boolean }) {
+function Panel({ template, featured }: { template: Template; featured: boolean }) {
   return (
     <Link
-      href={`/themes/${theme.slug}`}
+      href={`/templates/${template.slug}`}
       tabIndex={featured ? 0 : -1}
       className="group relative block h-full overflow-hidden focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-orange-400"
     >
       <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
-        <PanelBackground theme={theme} />
+        <PanelBackground template={template} />
       </div>
-
       <div className="absolute inset-0 bg-linear-to-t from-slate-950 from-15% via-slate-950/70 via-45% to-transparent" />
 
-      {theme.isNew && (
+      {template.badge && (
         <span className="absolute top-5 left-5 z-10 bg-orange-500 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
-          New
+          {BADGE_LABEL[template.badge]}
         </span>
       )}
 
@@ -87,62 +77,39 @@ function Panel({ theme, featured }: { theme: Theme; featured: boolean }) {
             featured ? "text-3xl md:text-4xl" : "text-xl md:text-2xl"
           }`}
         >
-          {theme.name}
+          {template.name}
         </h3>
-
         <dl className="space-y-2 border-t border-white/15 pt-4">
           {[
-            { label: "Technology", value: theme.technology ?? "Next.js · Tailwind" },
-            { label: "Released", value: theme.releaseDate ?? "Coming soon" },
-            { label: "Best for", value: bestFor(theme) },
+            { label: "Style", value: template.personality },
+            { label: "Mode", value: template.mode },
+            { label: "Price", value: `${price(OFFER.price)} built for you` },
           ].map((row) => (
             <div key={row.label} className="flex items-baseline gap-3">
-              <dt
-                className={`text-white/45 uppercase tracking-wider shrink-0 ${
-                  featured ? "text-[10px] w-24" : "text-[9px] w-20"
-                }`}
-              >
+              <dt className={`text-white/45 uppercase tracking-wider shrink-0 ${featured ? "text-[10px] w-20" : "text-[9px] w-16"}`}>
                 {row.label}
               </dt>
-              <dd
-                className={`text-white/90 font-medium leading-snug ${
-                  featured ? "text-sm" : "text-xs"
-                }`}
-              >
+              <dd className={`text-white/90 font-medium leading-snug ${featured ? "text-sm" : "text-xs"}`}>
                 {row.value}
               </dd>
             </div>
           ))}
         </dl>
-
-        <span
-          className={`inline-flex items-center gap-2 mt-5 font-bold text-white transition-transform group-hover:translate-x-0.5 ${
-            featured ? "text-sm" : "text-xs"
-          }`}
-        >
-          Build with this
-          <span aria-hidden="true">→</span>
+        <span className={`inline-flex items-center gap-2 mt-5 font-bold text-white transition-transform group-hover:translate-x-0.5 ${featured ? "text-sm" : "text-xs"}`}>
+          View template <span aria-hidden="true">→</span>
         </span>
       </div>
     </Link>
   );
 }
 
-const total = THEMES.length;
-const MIDDLE = total; // first index of the middle copy
-const ITEMS: Theme[] = Array.from({ length: total * COPIES }, (_, i) => THEMES[i % total]);
+const total = ORDERED.length;
+const MIDDLE = total;
+const ITEMS: Template[] = Array.from({ length: total * COPIES }, (_, i) => ORDERED[i % total]);
 
-/* Mirrors the width and gap classes on the track/panels below — keep the two in
- * step if either changes.
- *
- * These have to be constants rather than measurements. Panel widths are
- * mid-transition at the moment we need to scroll, so reading the DOM returns
- * the *old* width and centres the panel at 25% instead of 50% — landing it
- * exactly (720-360)/2 = 180px short. Computing from the final layout is the
- * only thing that's correct while animating. */
 const LAYOUT = {
-  md: { active: 0.5, inactive: 0.25, gap: 6 }, //  md:w-1/2 · md:w-1/4 · md:gap-1.5
-  base: { active: 0.85, inactive: 0.85, gap: 4 }, // w-[85%] · gap-1
+  md: { active: 0.5, inactive: 0.25, gap: 6 },
+  base: { active: 0.85, inactive: 0.85, gap: 4 },
 } as const;
 
 export default function HotThemes() {
@@ -158,42 +125,27 @@ export default function HotThemes() {
   const skipCentre = useRef(false);
   const firstRun = useRef(true);
 
-  const themeIndex = ((active - MIDDLE) % total + total) % total;
+  const templateIndex = ((active - MIDDLE) % total + total) % total;
 
   const prefersReduced = () =>
     typeof window !== "undefined" &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /** Final-layout geometry. Never derived from live rects — see LAYOUT. */
   const geometry = useCallback(() => {
     const el = trackRef.current;
     if (!el) return null;
     const width = el.clientWidth;
-    const l = window.matchMedia("(min-width: 768px)").matches
-      ? LAYOUT.md
-      : LAYOUT.base;
-    return {
-      width,
-      wActive: width * l.active,
-      stride: width * l.inactive + l.gap,
-    };
+    const l = window.matchMedia("(min-width: 768px)").matches ? LAYOUT.md : LAYOUT.base;
+    return { width, wActive: width * l.active, stride: width * l.inactive + l.gap };
   }, []);
 
-  /* Scrolls ONLY the track. Never scrollIntoView here: it scrolls every
-   * scrollable ancestor including the document, which hijacks the page to this
-   * section on mount and yanks the reader back on each advance. */
   const centreOn = useCallback(
     (index: number, instant = false) => {
       const el = trackRef.current;
       const g = geometry();
       if (!el || !g) return;
-      // Every panel before the active one is inactive, so the offset is a
-      // clean multiple of the stride.
       const target = index * g.stride - (g.width - g.wActive) / 2;
-      el.scrollTo({
-        left: Math.max(0, target),
-        behavior: instant || prefersReduced() ? "auto" : "smooth",
-      });
+      el.scrollTo({ left: Math.max(0, target), behavior: instant || prefersReduced() ? "auto" : "smooth" });
     },
     [geometry],
   );
@@ -209,10 +161,7 @@ export default function HotThemes() {
   useEffect(() => {
     const el = trackRef.current;
     if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setOnScreen(entry.isIntersecting),
-      { threshold: 0.25 },
-    );
+    const observer = new IntersectionObserver(([entry]) => setOnScreen(entry.isIntersecting), { threshold: 0.25 });
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
@@ -223,8 +172,6 @@ export default function HotThemes() {
     return () => clearInterval(id);
   }, [paused, onScreen]);
 
-  // Centre the active panel, then fold back into the middle copy once the
-  // scroll has finished, so the track can run forever in either direction.
   useEffect(() => {
     if (skipCentre.current) {
       skipCentre.current = false;
@@ -247,8 +194,6 @@ export default function HotThemes() {
     }
   }, [active, centreOn, geometry]);
 
-  // Apply the fold after the DOM has the new widths but before paint, so the
-  // scroll correction and the width change land in the same frame.
   useLayoutEffect(() => {
     if (pendingFold.current === null) return;
     const el = trackRef.current;
@@ -259,8 +204,6 @@ export default function HotThemes() {
 
   const handleScroll = () => {
     if (settleTimer.current) clearTimeout(settleTimer.current);
-    // Resolve the active panel only once the gesture settles — doing it per
-    // frame would thrash the width transition on every scroll event.
     settleTimer.current = setTimeout(() => {
       const next = nearestToCentre();
       setActive((prev) => (prev === next ? prev : next));
@@ -269,87 +212,72 @@ export default function HotThemes() {
 
   return (
     <section
-      id="hot-themes"
+      id="hot-templates"
       className="bg-slate-950 py-16 border-b border-slate-800"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={() => setPaused(false)}
       aria-roledescription="carousel"
-      aria-label="Hot themes"
+      aria-label="Hot templates"
     >
       <div className="max-w-6xl mx-auto px-6 mb-8 flex flex-wrap items-end justify-between gap-4">
         <div>
-          <span className="inline-block text-orange-400 font-semibold text-sm uppercase tracking-widest mb-3">
-            Hot right now
-          </span>
+          <span className="inline-block text-orange-400 font-semibold text-sm uppercase tracking-widest mb-3">New + hot</span>
           <h2 className="text-3xl md:text-4xl tracking-tight text-white">
-            <span className="font-light text-slate-400">The themes members </span>
-            <span className="font-bold">
-              are <span className="kw">picking</span>
-            </span>
+            <span className="font-light text-slate-400">The templates founders </span>
+            <span className="font-bold">are <span className="kw">launching</span></span>
           </h2>
         </div>
-        <p aria-live="polite" className="sr-only">
-          Now showing {THEMES[themeIndex].name}
-        </p>
-        <Link
-          href="/#themes"
-          className="text-sm font-semibold text-slate-300 hover:text-white transition-colors border border-slate-700 hover:border-slate-500 rounded-full px-5 py-2.5"
-        >
-          See all {total} themes
+        <p aria-live="polite" className="sr-only">Now showing {ORDERED[templateIndex].name}</p>
+        <Link href="/templates" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors border border-slate-700 hover:border-slate-500 rounded-full px-5 py-2.5">
+          See all {total} templates
         </Link>
       </div>
 
       <div
-        id="hot-themes-track"
+        id="hot-templates-track"
         ref={trackRef}
         onScroll={handleScroll}
         className="w-full h-130 md:h-150 flex gap-1 md:gap-1.5 overflow-x-auto no-scrollbar overscroll-x-contain"
       >
-        {ITEMS.map((theme, i) => (
+        {ITEMS.map((template, i) => (
           <div
-            key={`${theme.slug}-${i}`}
+            key={`${template.slug}-${i}`}
             ref={(el) => {
               panelRefs.current[i] = el;
             }}
             aria-hidden={i !== active}
-            className={`h-full flex-none ${
-              noAnim ? "" : "transition-[width] duration-500 ease-out"
-            } ${i === active ? "w-[85%] md:w-1/2" : "w-[85%] md:w-1/4"}`}
+            className={`h-full flex-none ${noAnim ? "" : "transition-[width] duration-500 ease-out"} ${
+              i === active ? "w-[85%] md:w-1/2" : "w-[85%] md:w-1/4"
+            }`}
           >
-            <Panel theme={theme} featured={i === active} />
+            <Panel template={template} featured={i === active} />
           </div>
         ))}
       </div>
 
-      {/* Dashed switcher — one 2px dash per theme */}
+      {/* Dashed switcher */}
       <div className="max-w-6xl mx-auto px-6 mt-8">
-        <div className="flex gap-2" role="group" aria-label="Switch theme">
-          {THEMES.map((theme, i) => {
-            const isActive = i === themeIndex;
+        <div className="flex gap-2" role="group" aria-label="Switch template">
+          {ORDERED.map((t, i) => {
+            const isActive = i === templateIndex;
             return (
               <button
-                key={theme.slug}
+                key={t.slug}
                 type="button"
                 onClick={() => setActive(MIDDLE + i)}
-                aria-label={`Show ${theme.name}`}
+                aria-label={`Show ${t.name}`}
                 aria-current={isActive}
                 className="group flex-1 py-2.5 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-400"
               >
-                <span
-                  className={`block h-0.5 w-full rounded-full transition-colors duration-300 ${
-                    isActive
-                      ? "bg-orange-500"
-                      : "bg-slate-700 group-hover:bg-slate-500"
-                  }`}
-                />
+                <span className={`block h-0.5 w-full rounded-full transition-colors duration-300 ${isActive ? "bg-orange-500" : "bg-slate-700 group-hover:bg-slate-500"}`} />
               </button>
             );
           })}
         </div>
         <p className="text-center text-slate-600 text-xs mt-1">
-          {THEMES[themeIndex].name} · {themeIndex + 1} of {total}
+          {ORDERED[templateIndex].name} · {templateIndex + 1} of {total}
         </p>
       </div>
     </section>

@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { OFFER, price } from "@/lib/offer";
+import { OFFER, buildRange, fromPrice, price } from "@/lib/offer";
 
 const TRUST = [
-  "Live in 7 days",
-  "Hosting included",
-  "Swap themes anytime",
-  "Cancel anytime",
+  "Not a file, a launch",
+  `Live in ${buildRange()}`,
+  "Maintained after",
+  "You own it, no lock-in",
 ];
 
 export default function FinalCTA() {
@@ -14,42 +14,35 @@ export default function FinalCTA() {
       <div className="max-w-4xl mx-auto px-6 text-center">
         <div className="inline-flex items-center gap-2 bg-orange-50 text-orange-600 text-sm font-semibold px-4 py-1.5 rounded-full border border-orange-100 mb-8">
           <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
-          {OFFER.slotsPerMonth} builds a month · Real capacity, real queue
+          {OFFER.slotsPerMonth} customization slots a month · Real capacity
         </div>
 
         <h2 className="text-4xl md:text-5xl tracking-tight text-slate-900 leading-tight mb-6">
-          <span className="font-light text-slate-500">Stop letting a generic site</span>
+          <span className="font-light text-slate-500">A template is a file.</span>
           <br />
-          <span className="font-bold">
-            cost you <span className="kw">deals</span>
-          </span>
+          <span className="font-bold">This is a <span className="kw">launch</span>.</span>
         </h2>
 
         <p className="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed mb-4">
-          Every day your current site is live, it&apos;s making prospects question
-          whether your platform is worth their money. Pick a theme today and
-          we&apos;ll have the replacement live in {OFFER.buildDays} days.
+          Every demo you run ends with the prospect opening your website in another
+          tab. That tab is where deals quietly die. Pick a template today and
+          we&apos;ll have the replacement live in {buildRange()}.
         </p>
         <p className="text-base text-slate-400 max-w-xl mx-auto leading-relaxed mb-12">
-          {price(OFFER.monthlyPrice)}/month covers the build, the hosting, the
-          support and every theme we ship from here on.
+          From {price(fromPrice())} launched — template, customization and
+          maintenance, by the people who built the system.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
           <Link
-            href="/start"
+            href="/templates"
             className="cta-glow group inline-flex items-center justify-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-black pl-10 pr-3 py-4 rounded-full text-lg transition-colors w-full sm:w-auto shadow-xl shadow-orange-500/25"
           >
-            Start my build
-            <span className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-lg leading-none transition-transform group-hover:translate-x-0.5">
-              →
-            </span>
+            Browse templates
+            <span className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-lg leading-none transition-transform group-hover:translate-x-0.5">→</span>
           </Link>
-          <Link
-            href="/#themes"
-            className="text-slate-700 font-semibold px-8 py-4 rounded-full border border-slate-200 hover:border-slate-300 hover:bg-white transition-colors w-full sm:w-auto text-center"
-          >
-            Browse the library
+          <Link href="/packages" className="text-slate-700 font-semibold px-8 py-4 rounded-full border border-slate-200 hover:border-slate-300 hover:bg-white transition-colors w-full sm:w-auto text-center">
+            See packages
           </Link>
         </div>
 
