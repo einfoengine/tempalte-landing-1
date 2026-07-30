@@ -1,3 +1,4 @@
+import RevealGroup from "@/components/RevealGroup";
 /* P1 §1.3 — the three usual paths, problem & agitation. Ties the website to
    the founder's close rate, not to aesthetics. This audience spends on revenue
    problems, not design problems. */
@@ -20,15 +21,15 @@ export default function ThreePaths() {
   return (
     <section id="gw-three-paths" className="bg-white dark:bg-slate-900 py-24 border-t border-slate-100 dark:border-slate-800">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="max-w-3xl mb-12">
+        <RevealGroup className="max-w-3xl mb-12">
           <span className="inline-block text-orange-600 dark:text-orange-400 font-semibold text-sm uppercase tracking-widest mb-4">The problem</span>
           <h2 className="text-3xl md:text-4xl tracking-tight text-slate-900 dark:text-white leading-tight">
             <span className="font-light text-slate-500 dark:text-slate-400">Every GoHighLevel agency owner gets a website one of three ways. </span>
             <span className="font-bold">All three <span className="gw-kw">stall</span>.</span>
           </h2>
-        </div>
+        </RevealGroup>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-10">
+        <RevealGroup className="grid md:grid-cols-3 gap-6 mb-10">
           {PATHS.map((p) => (
             <div key={p.label} className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 p-7">
               <div className="w-8 h-8 rounded-full bg-red-50 border border-red-200 flex items-center justify-center mb-4">
@@ -38,7 +39,7 @@ export default function ThreePaths() {
               <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">{p.body}</p>
             </div>
           ))}
-        </div>
+        </RevealGroup>
 
         <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl leading-relaxed">
           Meanwhile, every demo you run ends with the prospect opening your website

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import RevealGroup from "@/components/RevealGroup";
 import { OFFER, price, buildRange } from "@/lib/offer";
 
 /* Answers written for AI extraction and skeptical operators alike: direct first
@@ -78,13 +79,13 @@ export default function FAQ() {
   return (
     <section id="gw-faq" className="bg-white dark:bg-slate-900 py-24 border-t border-slate-100 dark:border-slate-800 scroll-mt-20">
       <div className="max-w-3xl mx-auto px-6">
-        <div className="text-center mb-14">
+        <RevealGroup className="text-center mb-14">
           <span className="inline-block text-orange-600 dark:text-orange-400 font-semibold text-sm uppercase tracking-widest mb-4">FAQ</span>
           <h2 className="text-4xl md:text-5xl tracking-tight text-slate-900 dark:text-white leading-tight mb-5">
             <span className="font-light">Common </span><span className="font-bold">questions</span>
           </h2>
           <p className="text-slate-500 dark:text-slate-400 text-base">The ones that actually stall a decision, answered straight.</p>
-        </div>
+        </RevealGroup>
         <div className="bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 px-8 divide-y divide-slate-100 dark:divide-slate-800">
           {faqs.map((faq) => (
             <FAQItem key={faq.q} q={faq.q} a={faq.a} />

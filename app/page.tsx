@@ -11,7 +11,7 @@ import { OfferCard } from "@/components/Offer";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
-import Reveal from "@/components/Reveal";
+import RevealGroup from "@/components/RevealGroup";
 import ScrollProgress from "@/components/ScrollProgress";
 import TemplateMarquee from "@/components/TemplateMarquee";
 import { sortedTemplates, TEMPLATES } from "@/lib/templates";
@@ -29,22 +29,16 @@ export default function Home() {
         {/* Hero is NOT wrapped — it's the LCP element and must paint immediately.
             Everything below it reveals on scroll. */}
         <Hero />
-        <Reveal>
-          <ProofBar />
-        </Reveal>
-        <Reveal>
-          <ThreePaths />
-        </Reveal>
-        <Reveal>
-          <TemplateFeatures />
-        </Reveal>
+        <ProofBar />
+        <ThreePaths />
+        <TemplateFeatures />
         <HotThemes />
         <TemplateMarquee />
 
         {/* §1.6 Gallery preview — six cards into the full gallery */}
         <section id="gw-gallery-preview" className="py-24 border-t border-slate-100 dark:border-slate-800">
           <div className="max-w-6xl mx-auto px-6">
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+            <RevealGroup className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
               <div>
                 <h2 className="text-3xl md:text-4xl tracking-tight text-slate-900 dark:text-white mb-2">
                   <span className="font-light">The </span>
@@ -55,32 +49,30 @@ export default function Home() {
               <Link href="/templates" className="text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-slate-900 border border-slate-200 dark:border-slate-700 hover:border-slate-300 rounded-full px-5 py-2.5 shrink-0 transition-colors">
                 See all {TEMPLATES.length} templates →
               </Link>
-            </div>
-            <div className="gw-focus-grid grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            </RevealGroup>
+            <RevealGroup className="gw-focus-grid grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {preview.map((t) => (
                 <TemplateCard key={t.slug} template={t} />
               ))}
-            </div>
+            </RevealGroup>
             <p className="text-center text-sm text-slate-400 mt-8">
               Every preview uses the same demo content — so you&apos;re comparing design, not copywriting.
             </p>
           </div>
         </section>
 
-        <Reveal>
-          <HowItWorks />
-        </Reveal>
+        <HowItWorks />
 
         {/* §1.8 Pricing preview — one offer, no tiers */}
         <section id="gw-pricing-preview" className="bg-white dark:bg-slate-900 py-24 border-t border-slate-100 dark:border-slate-800">
           <div className="max-w-5xl mx-auto px-6">
-            <div className="max-w-2xl mx-auto text-center mb-12">
+            <RevealGroup className="max-w-2xl mx-auto text-center mb-12">
               <span className="inline-block text-orange-600 dark:text-orange-400 font-semibold text-sm uppercase tracking-widest mb-4">Pricing</span>
               <h2 className="text-3xl md:text-4xl tracking-tight text-slate-900 dark:text-white leading-tight mb-4">
                 <span className="font-light text-slate-500 dark:text-slate-400">Pick one design. </span>
                 <span className="font-bold">One price, <span className="gw-kw">everything included</span>.</span>
               </h2>
-            </div>
+            </RevealGroup>
             <OfferCard />
             <p className="text-center mt-8">
               <Link href="/pricing" className="text-orange-600 dark:text-orange-400 font-bold text-sm hover:underline">
@@ -90,12 +82,8 @@ export default function Home() {
           </div>
         </section>
 
-        <Reveal>
-          <FAQ />
-        </Reveal>
-        <Reveal>
-          <FinalCTA />
-        </Reveal>
+        <FAQ />
+        <FinalCTA />
       </main>
       <Footer />
     </>

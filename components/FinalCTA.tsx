@@ -1,4 +1,5 @@
 import Link from "next/link";
+import RevealGroup from "@/components/RevealGroup";
 import { OFFER, buildRange, price } from "@/lib/offer";
 
 /* Closing section. Deliberately does NOT reuse the "deals quietly die" line —
@@ -14,7 +15,7 @@ const TRUST = [
 export default function FinalCTA() {
   return (
     <section id="gw-get-started" className="bg-slate-50 dark:bg-slate-900 py-24 border-t border-slate-100 dark:border-slate-800 scroll-mt-20">
-      <div className="max-w-4xl mx-auto px-6 text-center">
+      <RevealGroup className="max-w-4xl mx-auto px-6 text-center">
         <div className="inline-flex items-center gap-2 bg-orange-50 dark:bg-orange-500/15 text-orange-600 dark:text-orange-400 text-sm font-semibold px-4 py-1.5 rounded-full border border-orange-100 dark:border-orange-500/30 mb-8">
           <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
           We take {OFFER.slotsPerMonth} builds a month
@@ -60,7 +61,7 @@ export default function FinalCTA() {
             </span>
           ))}
         </div>
-      </div>
+      </RevealGroup>
     </section>
   );
 }

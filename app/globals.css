@@ -122,6 +122,41 @@ h1, h2, h3, h4, h5, h6 {
   .gw-tilt { transform: none !important; transition: none !important; }
 }
 
+/* Staggered reveal — animates each DIRECT CHILD of a RevealGroup in turn.
+   Delays live here as nth-child rules so no wrapper element is needed per
+   child, which keeps grid/flex parent-child relationships intact. */
+[data-gw-stagger="pending"] > * {
+  opacity: 0;
+  transform: translateY(var(--gw-reveal-from, 16px));
+  transition: opacity 0.35s ease-in, transform 0.35s ease-in;
+}
+[data-gw-stagger="in"] > * {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.55s ease-out, transform 0.55s ease-out;
+}
+[data-gw-stagger="in"] > *:nth-child(1)  { transition-delay: 0ms; }
+[data-gw-stagger="in"] > *:nth-child(2)  { transition-delay: 70ms; }
+[data-gw-stagger="in"] > *:nth-child(3)  { transition-delay: 140ms; }
+[data-gw-stagger="in"] > *:nth-child(4)  { transition-delay: 210ms; }
+[data-gw-stagger="in"] > *:nth-child(5)  { transition-delay: 280ms; }
+[data-gw-stagger="in"] > *:nth-child(6)  { transition-delay: 350ms; }
+[data-gw-stagger="in"] > *:nth-child(7)  { transition-delay: 400ms; }
+[data-gw-stagger="in"] > *:nth-child(8)  { transition-delay: 440ms; }
+[data-gw-stagger="in"] > *:nth-child(9)  { transition-delay: 480ms; }
+[data-gw-stagger="in"] > *:nth-child(10) { transition-delay: 510ms; }
+[data-gw-stagger="in"] > *:nth-child(11) { transition-delay: 540ms; }
+/* Anything past 12 lands together — a longer queue reads as lag, not polish. */
+[data-gw-stagger="in"] > *:nth-child(n+12) { transition-delay: 570ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-gw-stagger] > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 /* Scroll reveal — fires in BOTH directions, every time a block re-enters view.
    Content is VISIBLE by default: the hidden state is only applied by JS once an
    observer is attached, so with JS disabled (or a failed hydration) nothing is

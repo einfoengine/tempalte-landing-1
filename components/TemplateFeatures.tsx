@@ -1,4 +1,5 @@
 import Link from "next/link";
+import RevealGroup from "@/components/RevealGroup";
 import BrandCompare from "@/components/BrandCompare";
 import { OFFER, buildRange, price } from "@/lib/offer";
 import { TEMPLATE_PAGES } from "@/lib/templates";
@@ -28,8 +29,8 @@ import { TEMPLATE_PAGES } from "@/lib/templates";
  * longer forces that column to be double height, so no stretching is needed. */
 function PageMap() {
   return (
-    <ul
-      aria-hidden="true"
+    <RevealGroup
+      as="ul"
       className="grid grid-cols-2 sm:grid-cols-3 gap-1.5"
     >
       {TEMPLATE_PAGES.map((page) => (
@@ -50,7 +51,7 @@ function PageMap() {
           </span>
         </li>
       ))}
-    </ul>
+    </RevealGroup>
   );
 }
 
@@ -84,7 +85,7 @@ export default function TemplateFeatures() {
       className="gw-hero-dot-bg py-24 border-t border-slate-100 dark:border-slate-800 scroll-mt-20"
     >
       <div className="relative z-10 max-w-6xl mx-auto px-6">
-        <div className="max-w-3xl mx-auto text-center mb-14">
+        <RevealGroup className="max-w-3xl mx-auto text-center mb-14">
           <span className="inline-block text-orange-600 dark:text-orange-400 font-semibold text-sm uppercase tracking-widest mb-4">
             What you get
           </span>
@@ -99,10 +100,10 @@ export default function TemplateFeatures() {
             You choose how it looks. We do the building, the brand setup and the
             CRM wiring — then stay on hand for {OFFER.supportMonths} months.
           </p>
-        </div>
+        </RevealGroup>
 
         {/* Bento: the biggest claim gets the biggest tile */}
-        <div className="grid lg:grid-cols-3 gap-5">
+        <RevealGroup className="grid lg:grid-cols-3 gap-5">
           {/* Complete site — spans two columns and both rows */}
           <div className="min-w-0 lg:col-span-2 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-7 md:p-8 shadow-sm flex flex-col">
             <div className="flex items-start justify-between gap-4 mb-4">
@@ -185,7 +186,7 @@ export default function TemplateFeatures() {
               See pricing →
             </Link>
           </div>
-        </div>
+        </RevealGroup>
 
         {/* Summary strip ties the three tiles back to the one price */}
         <div className="mt-5 rounded-2xl bg-slate-900 p-6 md:px-8 flex flex-col md:flex-row md:items-center justify-between gap-4">

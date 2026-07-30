@@ -1,3 +1,4 @@
+import RevealGroup from "@/components/RevealGroup";
 import { OFFER, buildRange, price } from "@/lib/offer";
 import { TEMPLATE_PAGES } from "@/lib/templates";
 
@@ -30,7 +31,7 @@ export default function ProofBar() {
     <section id="gw-proof" className="relative overflow-hidden bg-slate-900 py-20 border-y border-slate-800">
       <div aria-hidden="true" className="gw-aurora" />
       <div className="relative z-10 max-w-6xl mx-auto px-6">
-        <div className="max-w-2xl mx-auto text-center mb-12">
+        <RevealGroup className="max-w-2xl mx-auto text-center mb-12">
           <span className="inline-block text-orange-400 font-semibold text-xs uppercase tracking-widest mb-4">
             Cost vs benefit
           </span>
@@ -40,15 +41,15 @@ export default function ProofBar() {
               has a price <span className="gw-kw">too</span>.
             </span>
           </h2>
-        </div>
+        </RevealGroup>
 
-        <div className="grid md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-4 items-stretch">
+        <RevealGroup className="grid md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-4 items-stretch">
           {/* Cost of doing nothing — visually receded */}
           <div className="rounded-2xl border border-slate-800 bg-slate-800/30 p-7">
             <div className="text-slate-400 text-xs font-semibold uppercase tracking-widest mb-5">
               If you leave it
             </div>
-            <ul className="space-y-4">
+            <RevealGroup as="ul" className="space-y-4">
               {COST_OF_WAITING.map((item) => (
                 <li key={item.head} className="flex items-start gap-3">
                   <span
@@ -67,7 +68,7 @@ export default function ProofBar() {
                   </span>
                 </li>
               ))}
-            </ul>
+            </RevealGroup>
           </div>
 
           {/* Pivot */}
@@ -89,7 +90,7 @@ export default function ProofBar() {
                 once, and you get
               </span>
             </div>
-            <ul className="space-y-4">
+            <RevealGroup as="ul" className="space-y-4">
               {WHAT_YOU_GET.map((item) => (
                 <li key={item.head} className="flex items-start gap-3">
                   <svg
@@ -111,9 +112,9 @@ export default function ProofBar() {
                   </span>
                 </li>
               ))}
-            </ul>
+            </RevealGroup>
           </div>
-        </div>
+        </RevealGroup>
       </div>
     </section>
   );
